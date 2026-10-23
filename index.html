@@ -370,4 +370,222 @@
 
         .footer-col h4 {
             color: white;
-            font-size: 18
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content, .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .nav-links {
+                display: none; /* Thu gọn trên mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#trang-chu" class="logo">Yến Sào Nha Trang</a>
+            <ul class="nav-links">
+                <li><a href="#trang-chu">Trang chủ</a></li>
+                <li><a href="#san-pham">Sản phẩm</a></li>
+                <li><a href="#gioi-thieu">Giới thiệu</a></li>
+                <li><a href="#lien-he">Liên hệ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- TRANG CHỦ -->
+    <section id="trang-chu" class="hero">
+        <div class="hero-content">
+            <h1>Thượng Phẩm Yến Sào Khánh Hòa</h1>
+            <p>100% Nguyên chất khai thác trực tiếp tại đảo yến Nha Trang. Bồi bổ sức khỏe toàn diện và mang lại vẻ đẹp tự nhiên.</p>
+            <a href="#san-pham" class="btn">Khám Phá Sản Phẩm</a>
+        </div>
+    </section>
+
+    <!-- TRANG SẢN PHẨM -->
+    <section id="san-pham" class="container">
+        <h2 class="section-title">Danh Mục Sản Phẩm</h2>
+        
+        <div class="product-categories">
+            <button class="category-btn active">Tất cả</button>
+            <button class="category-btn">Yến thô</button>
+            <button class="category-btn">Yến tinh chế</button>
+            <button class="category-btn">Yến chưng sẵn</button>
+        </div>
+
+        <div class="products-grid">
+            <!-- Sản phẩm 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80" alt="Yến Thô Đảo Nha Trang" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Yến Thô Đảo Nha Trang Loại 1</h3>
+                    <p class="product-desc">Tổ yến còn nguyên lông, sợi dày, thơm đặc trưng. Được thu hoạch trực tiếp từ các đảo yến Khánh Hòa.</p>
+                    <div class="product-price">2.800.000 đ / 100g</div>
+                    <a href="#lien-he" class="btn">Đặt Hàng Ngay</a>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80" alt="Yến Tinh Chế Rút Lông" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Yến Tinh Chế Rút Lông Sấy Khô</h3>
+                    <p class="product-desc">Đã làm sạch 99% tạp chất, tiện lợi chế biến ngay. Phù hợp cho người bận rộn và làm quà biếu cao cấp.</p>
+                    <div class="product-price">3.500.000 đ / 100g</div>
+                    <a href="#lien-he" class="btn">Đặt Hàng Ngay</a>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" alt="Hộp Yến Chưng Đường Phèn" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Hộp 6 Hũ Yến Chưng Đường Phèn</h3>
+                    <p class="product-desc">Chưng tươi thủ công hàng ngày với 30% hàm lượng yến thật, vị ngọt thanh tự nhiên từ đường phèn Quảng Ngãi.</p>
+                    <div class="product-price">390.000 đ / Hộp</div>
+                    <a href="#lien-he" class="btn">Đặt Hàng Ngay</a>
+                </div>
+            </div>
+
+            <!-- Sản phẩm 4 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=500&q=80" alt="Hồng Yến Tinh Chế" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">Hồng Yến Khánh Hòa Thượng Hạng</h3>
+                    <p class="product-desc">Tổ yến màu cam hồng tự nhiên chứa hàm lượng vi chất dinh dưỡng cao vượt trội so với bạch yến thông thường.</p>
+                    <div class="product-price">4.800.000 đ / 100g</div>
+                    <a href="#lien-he" class="btn">Đặt Hàng Ngay</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANG GIỚI THIỆU -->
+    <section id="gioi-thieu" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Về Chúng Tôi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Hành Trình Trao Gửi Sức Khỏe Cho Mọi Gia Đình</h2>
+                    <p>Khởi nguồn từ vùng đất biển Khánh Hòa - nơi nổi tiếng với trữ lượng yến đảo chất lượng cao nhất cả nước, thương hiệu **Yến Sào Nha Trang** cam kết mang lại những sản phẩm thượng hạng, giữ trọn vẹn tinh túy dinh dưỡng thiên nhiên.</p>
+                    <p>Chúng tôi áp dụng quy trình kiểm soát chất lượng nghiêm ngặt từ khâu khai thác, sơ chế làm sạch hoàn toàn thủ công bằng nước tinh khiết đến khâu đóng gói sang trọng, không sử dụng hóa chất hay chất bảo quản.</p>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Cơ sở chế biến Yến Sào">
+                </div>
+            </div>
+
+            <!-- Cam kết chất lượng -->
+            <div class="features-grid">
+                <div class="feature-box">
+                    <h3>100% Nguyên Chất</h3>
+                    <p>Cam kết hoàn tiền 200% nếu phát hiện yến giả hoặc pha trộn.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Làm Sạch Thủ Công</h3>
+                    <p>Nhặt lông thủ công với nước tinh khiết, bảo toàn trọn vẹn vi chất.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Giao Hàng Toàn Quốc</h3>
+                    <p>Đóng gói sang trọng, giao hàng nhanh chóng tận tay khách hàng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANG LIÊN HỆ -->
+    <section id="lien-he" class="container">
+        <h2 class="section-title">Liên Hệ Đặt Hàng</h2>
+        <div class="contact-wrapper">
+            <!-- Thông tin liên hệ -->
+            <div class="contact-info">
+                <h3>Thông Tin Cửa Hàng</h3>
+                <div class="info-item">
+                    <strong>Địa chỉ:</strong>
+                    <span>123 Đường Trần Phú, Phường Lộc Thọ, TP. Nha Trang, Khánh Hòa</span>
+                </div>
+                <div class="info-item">
+                    <strong>Hotline/Zalo:</strong>
+                    <span>0905.123.456 - 0988.654.321</span>
+                </div>
+                <div class="info-item">
+                    <strong>Email:</strong>
+                    <span>yensaonhatrang.contact@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <strong>Giờ mở cửa:</strong>
+                    <span>08:00 - 21:00 (Tất cả các ngày trong tuần)</span>
+                </div>
+            </div>
+
+            <!-- Form gửi thông tin -->
+            <div class="contact-form">
+                <form action="#" method="POST" onsubmit="alert('Cảm ơn bạn đã gửi liên hệ! Chúng tôi sẽ phản hồi trong 15 phút.'); return false;">
+                    <div class="form-group">
+                        <label for="name">Họ và tên *</label>
+                        <input type="text" id="name" placeholder="Ví dụ: Nguyễn Văn A" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại *</label>
+                        <input type="tel" id="phone" placeholder="Ví dụ: 0905123456" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product">Sản phẩm quan tâm</label>
+                        <input type="text" id="product" placeholder="Nhập tên sản phẩm hoặc nhu cầu tư vấn">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ghi chú thêm</label>
+                        <textarea id="message" rows="4" placeholder="Nhập địa chỉ giao hàng hoặc yêu cầu chi tiết..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Gửi Yêu Cầu Tư Vấn</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Yến Sào Nha Trang</h4>
+                <p>Thương hiệu chuyên cung cấp yến sào đảo thiên nhiên Khánh Hòa nguyên chất, bảo vệ và nâng tầm sức khỏe cho mọi gia đình Việt.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Sản Phẩm Chính</h4>
+                <p>• Yến Thô Nguyên Tổ</p>
+                <p>• Yến Tinh Chế Rút Lông</p>
+                <p>• Yến Chưng Tươi Đường Phèn</p>
+                <p>• Hồng Yến Thượng Hạng</p>
+            </div>
+            <div class="footer-col">
+                <h4>Chính Sách Bán Hàng</h4>
+                <p>• Chính sách bảo mật</p>
+                <p>• Chính sách đổi trả & hoàn tiền</p>
+                <p>• Phương thức thanh toán</p>
+                <p>• Vận chuyển & Giao nhận</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Yến Sào Nha Trang. Tất cả các quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
