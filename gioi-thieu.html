@@ -58,52 +58,6 @@ header {
   font-size: clamp(13px, 0.9vw, 15px);
 }
 
-/* 4. BANNER SLIDESHOW (TỰ TÍNH THEO VIEWPORT HEIGHT) */
-.slider-container {
-  position: relative;
-  width: 100%;
-  height: 600px; /* Tự động co dãn theo chiều cao màn hình */
-  border-radius: 14px;
-  overflow: hidden;
-  background: #D4B77A;
-  box-shadow: 0 8px 24px rgba(43, 26, 20, 0.08);
-}
-
-.slide {
-  position: absolute;
-  top: 0; left: 0; 
-  width: 100%; 
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  overflow: hidden;
-}
-.slide.active { opacity: 1; }
-
-/* Ép ảnh vừa khít 100% khung banner cả chiều ngang lẫn chiều cao */
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* Phủ kín toàn bộ khung, tự cắt lề thừa nếu ảnh không đúng tỷ lệ */
-  object-position: center; /* Luôn giữ trọng tâm ảnh ở giữa */
-  display: block;
-}
-
-  
-.slide-dots {
-  position: absolute; bottom: 12px; left: 50%;
-  transform: translateX(-50%);
-  display: flex; gap: 8px; z-index: 10;
-}
-.dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5); cursor: pointer;
-}
-.dot.active { background: #fff; }
-
-  
-
-/* Nút Xem Thêm / Rút Gọn */
 .btn-toggle {
   display: inline-block; 
   border: 1.5px solid #7A1F2B; 
@@ -136,13 +90,58 @@ header {
   width: 100%;
 }
 
-.ph {
-  background: linear-gradient(135deg,#EAD9B5,#D4B77A);
-  display: flex; align-items: center; justify-content: center;
-  color: #5A4210; font-size: clamp(14px, 1.1vw, 18px);
-  height: clamp(280px, 45vh, 500px);
-  border-radius: 14px; flex: 1 1 400px;
+/* KHUNG BANNER SLIDESHOW 3 ẢNH GIỐNG TRANG CHỦ */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 420px; /* Cố định chiều cao khớp với ảnh */
+  border-radius: 14px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 8px 24px rgba(43, 26, 20, 0.08);
+  flex: 1 1 420px;
 }
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active { 
+  opacity: 1; 
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Giữ nguyên tỉ lệ gốc của ảnh */
+  object-position: center;
+  display: block;
+}
+
+.slide-dots {
+  position: absolute; 
+  bottom: 12px; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex; 
+  gap: 8px; 
+  z-index: 10;
+}
+
+.dot {
+  width: 10px; 
+  height: 10px; 
+  border-radius: 50%;
+  background: rgba(43, 26, 20, 0.3); 
+  cursor: pointer;
+}
+.dot.active { background: #7A1F2B; }
 
 .eyebrow {
   font-size: clamp(11px, 0.8vw, 13px);
@@ -150,15 +149,13 @@ header {
   color: #8A6212; font-weight: 600; margin-bottom: 0.8vh;
 }
 
-/* Khung nội dung có thể cuộn nhẹ khi mở rộng */
 .text-container {
-  max-height: clamp(220px, 35vh, 380px);
+  max-height: clamp(200px, 32vh, 340px);
   overflow-y: auto;
   padding-right: 8px;
   margin: 1.5vh 0;
 }
 
-/* Ẩn phần văn bản mở rộng ban đầu */
 .more-text {
   display: none;
 }
@@ -199,7 +196,6 @@ footer {
   <section class="main-sec">
     <div class="wrap">
       <div class="grid-content">
-
         
         <!-- Khung Banner Slideshow 3 ảnh -->
         <div class="slider-container">
@@ -214,29 +210,25 @@ footer {
           </div>
         </div>
 
-        
         <div style="flex: 1 1 450px;">
           <p class="eyebrow">Giới thiệu</p>
-          <h1 style="font-size:clamp(28px, 2.8vw, 44px); color:#7A1F2B; line-height:1.2;">Câu chuyện yến sào Nha Trang</h1>
+          <h1 style="font-size:clamp(26px, 2.6vw, 40px); color:#7A1F2B; line-height:1.2;">Câu chuyện yến sào Nha Trang</h1>
           
           <div class="text-container">
-            <!-- Đoạn ngắn hiển thị ban đầu -->
             <p style="font-size:clamp(13px, 0.95vw, 15px); line-height:1.6; margin:0 0 1vh;">
               Kính gửi Quý khách hàng thân mến của Công ty Cổ phần Yến Sào Nha Trang! Lời đầu tiên, Chúng tôi xin gửi đến Quý khách hàng lời chào trân trọng, lời chúc sức khỏe, luôn hạnh phúc và thành công trong cuộc sống. Với hơn 10 năm hoạt động trong ngành sản xuất và kinh doanh yến sào, Công ty Cổ phần Yến Sào Nha Trang đã không ngừng nỗ lực để mang đến những sản phẩm chất lượng nhất cho Quý khách hàng.
             </p>
             
-            <!-- Đoạn văn bản ẩn, hiển thị khi bấm nút -->
             <div class="more-text" id="moreText">
               <p style="font-size:clamp(13px, 0.95vw, 15px); line-height:1.6; margin:0 0 1vh;">
-                Chúng tôi luôn đặt lợi ích của Quý khách lên hàng đầu — cam kết cung cấp các sản phẩm yến sào thiên nhiên và đảm bảo an toàn. Công ty tự hào là đơn vị đáp ứng được các tiêu chuẩn khắt khe trong và ngoài nước như: FDA, USDA, FSSC 22000, ISO, HACCP, GMP... Bên cạnh đó là đơn vị tiên phong trong phân khúc Tổ yến ăn liền đầu tiên tại Việt Nam với nhãn hiệu Nest Art đã được xuất khẩu chính ngạch tại thị trường Mỹ, Hồng Kông và mở ra cơ hội kinh doanh của Công ty ở các nước trên thế giới trong thời gian sắp tới...
+                Chúng tôi luôn đặt lợi ích của Quý khách lên hàng đầu — cam kết cung cấp các sản phẩm yến sào thiên nhiên và đảm bảo an toàn. Công ty tự hào là đơn vị đáp ứng được các tiêu chuẩn khắt khe trong và ngoài nước như: FDA, USDA, FSSC 22000, ISO, HACCP, GMP...
               </p>
               <p style="font-size:clamp(13px, 0.95vw, 15px); line-height:1.6; margin:0;">
-                Thấu hiểu tâm lý của Khách hàng, Công ty cho ra đời nhiều dòng sản phẩm như Tổ yến nguyên tổ, Tổ yến huyết, Tổ yến tinh chế, Tổ yến ăn liền, Súp tổ yến, Tổ yến thật sấy thăng hoa, Tổ yến thật chưng sẵn, Sữa chua sấy khô, Cà phê tổ yến, Nước yến thật... phục vụ nhu cầu cho từng vị Khách. Chúng tôi luôn lắng nghe ý kiến đóng góp, phản hồi để hoàn thiện sản phẩm và dịch vụ ngày một tốt hơn.
+                Thấu hiểu tâm lý của Khách hàng, Công ty cho ra đời nhiều dòng sản phẩm như Tổ yến nguyên tổ, Tổ yến huyết, Tổ yến tinh chế, Yến chưng sẵn... phục vụ nhu cầu bồi bổ sức khỏe toàn diện cho gia đình bạn.
               </p>
             </div>
           </div>
 
-          <!-- Nút bấm chuyển đổi trạng thái -->
           <button class="btn-toggle" id="toggleBtn" onclick="toggleReadMore()">Xem thêm</button>
         </div>
       </div>
@@ -251,6 +243,25 @@ footer {
   </footer>
 
 <script>
+// Logic chuyển ảnh Slideshow
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(n) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    dots[i].classList.remove('active');
+  });
+  slideIndex = (n + slides.length) % slides.length;
+  slides[slideIndex].classList.add('active');
+  dots[slideIndex].classList.add('active');
+}
+
+function currentSlide(n) { showSlide(n); }
+setInterval(() => { showSlide(slideIndex + 1); }, 4000);
+
+// Logic Xem thêm / Rút gọn văn bản
 function toggleReadMore() {
   const moreText = document.getElementById("moreText");
   const btn = document.getElementById("toggleBtn");
