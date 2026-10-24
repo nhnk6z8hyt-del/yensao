@@ -58,6 +58,51 @@ header {
   font-size: clamp(13px, 0.9vw, 15px);
 }
 
+/* 4. BANNER SLIDESHOW (TỰ TÍNH THEO VIEWPORT HEIGHT) */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Tự động co dãn theo chiều cao màn hình */
+  border-radius: 14px;
+  overflow: hidden;
+  background: #D4B77A;
+  box-shadow: 0 8px 24px rgba(43, 26, 20, 0.08);
+}
+
+.slide {
+  position: absolute;
+  top: 0; left: 0; 
+  width: 100%; 
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  overflow: hidden;
+}
+.slide.active { opacity: 1; }
+
+/* Ép ảnh vừa khít 100% khung banner cả chiều ngang lẫn chiều cao */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* Phủ kín toàn bộ khung, tự cắt lề thừa nếu ảnh không đúng tỷ lệ */
+  object-position: center; /* Luôn giữ trọng tâm ảnh ở giữa */
+  display: block;
+}
+
+  
+.slide-dots {
+  position: absolute; bottom: 12px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 10;
+}
+.dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5); cursor: pointer;
+}
+.dot.active { background: #fff; }
+
+  
+
 /* Nút Xem Thêm / Rút Gọn */
 .btn-toggle {
   display: inline-block; 
