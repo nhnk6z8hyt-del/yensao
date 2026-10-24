@@ -57,10 +57,24 @@ header {
   padding: 0.8vh 1.6vw; border-radius: 6px; font-weight: 600;
   font-size: clamp(13px, 0.9vw, 15px);
 }
-.btn2 {
-  display: inline-block; border: 1.5px solid #7A1F2B; color: #7A1F2B;
-  padding: 0.7vh 1.6vw; border-radius: 6px; font-weight: 600;
+
+/* Nút Xem Thêm / Rút Gọn */
+.btn-toggle {
+  display: inline-block; 
+  border: 1.5px solid #7A1F2B; 
+  color: #7A1F2B;
+  background: transparent;
+  padding: 0.7vh 1.6vw; 
+  border-radius: 6px; 
+  font-weight: 600;
   font-size: clamp(13px, 0.9vw, 15px);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-toggle:hover {
+  background: #7A1F2B;
+  color: #fff;
 }
 
 .main-sec {
@@ -89,6 +103,19 @@ header {
   font-size: clamp(11px, 0.8vw, 13px);
   letter-spacing: .12em; text-transform: uppercase;
   color: #8A6212; font-weight: 600; margin-bottom: 0.8vh;
+}
+
+/* Khung nội dung có thể cuộn nhẹ khi mở rộng */
+.text-container {
+  max-height: clamp(220px, 35vh, 380px);
+  overflow-y: auto;
+  padding-right: 8px;
+  margin: 1.5vh 0;
+}
+
+/* Ẩn phần văn bản mở rộng ban đầu */
+.more-text {
+  display: none;
 }
 
 footer {
@@ -131,9 +158,26 @@ footer {
         <div style="flex: 1 1 450px;">
           <p class="eyebrow">Giới thiệu</p>
           <h1 style="font-size:clamp(28px, 2.8vw, 44px); color:#7A1F2B; line-height:1.2;">Câu chuyện yến sào Nha Trang</h1>
-          <p style="font-size:clamp(13px, 1vw, 16px); line-height:1.6; margin:1.5vh 0;">Nha Trang – Khánh Hòa là vùng đất nổi tiếng với nghề khai thác yến sào. Chúng tôi mong muốn mang đến sản phẩm yến chất lượng, minh bạch về nguồn gốc và quy trình chế biến.</p>
-          <p style="font-size:clamp(13px, 1vw, 16px); line-height:1.6; margin-bottom:2.5vh;">Mỗi sản phẩm được chọn lọc kỹ lưỡng, từ yến thô đến yến chưng sẵn, phù hợp để dùng hằng ngày hoặc làm quà biếu cao cấp.</p>
-          <a class="btn2" href="cua-hang.html">Tìm cửa hàng gần bạn</a>
+          
+          <div class="text-container">
+            <!-- Đoạn ngắn hiển thị ban đầu -->
+            <p style="font-size:clamp(13px, 0.95vw, 15px); line-height:1.6; margin:0 0 1vh;">
+              Kính gửi Quý khách hàng thân mến của Công ty Cổ phần Yến Sào Nha Trang! Lời đầu tiên, Chúng tôi xin gửi đến Quý khách hàng lời chào trân trọng, lời chúc sức khỏe, luôn hạnh phúc và thành công trong cuộc sống. Với hơn 10 năm hoạt động trong ngành sản xuất và kinh doanh yến sào, Công ty Cổ phần Yến Sào Nha Trang đã không ngừng nỗ lực để mang đến những sản phẩm chất lượng nhất cho Quý khách hàng.
+            </p>
+            
+            <!-- Đoạn văn bản ẩn, hiển thị khi bấm nút -->
+            <div class="more-text" id="moreText">
+              <p style="font-size:clamp(13px, 0.95vw, 15px); line-height:1.6; margin:0 0 1vh;">
+                Chúng tôi luôn đặt lợi ích của Quý khách lên hàng đầu — cam kết cung cấp các sản phẩm yến sào thiên nhiên và đảm bảo an toàn. Công ty tự hào là đơn vị đáp ứng được các tiêu chuẩn khắt khe trong và ngoài nước như: FDA, USDA, FSSC 22000, ISO, HACCP, GMP... Bên cạnh đó là đơn vị tiên phong trong phân khúc Tổ yến ăn liền đầu tiên tại Việt Nam với nhãn hiệu Nest Art đã được xuất khẩu chính ngạch tại thị trường Mỹ, Hồng Kông và mở ra cơ hội kinh doanh của Công ty ở các nước trên thế giới trong thời gian sắp tới...
+              </p>
+              <p style="font-size:clamp(13px, 0.95vw, 15px); line-height:1.6; margin:0;">
+                Thấu hiểu tâm lý của Khách hàng, Công ty cho ra đời nhiều dòng sản phẩm như Tổ yến nguyên tổ, Tổ yến huyết, Tổ yến tinh chế, Tổ yến ăn liền, Súp tổ yến, Tổ yến thật sấy thăng hoa, Tổ yến thật chưng sẵn, Sữa chua sấy khô, Cà phê tổ yến, Nước yến thật... phục vụ nhu cầu cho từng vị Khách. Chúng tôi luôn lắng nghe ý kiến đóng góp, phản hồi để hoàn thiện sản phẩm và dịch vụ ngày một tốt hơn.
+              </p>
+            </div>
+          </div>
+
+          <!-- Nút bấm chuyển đổi trạng thái -->
+          <button class="btn-toggle" id="toggleBtn" onclick="toggleReadMore()">Xem thêm</button>
         </div>
       </div>
     </div>
@@ -146,5 +190,19 @@ footer {
     </div>
   </footer>
 
+<script>
+function toggleReadMore() {
+  const moreText = document.getElementById("moreText");
+  const btn = document.getElementById("toggleBtn");
+
+  if (moreText.style.display === "block") {
+    moreText.style.display = "none";
+    btn.textContent = "Xem thêm";
+  } else {
+    moreText.style.display = "block";
+    btn.textContent = "Rút gọn";
+  }
+}
+</script>
 </body>
 </html>
