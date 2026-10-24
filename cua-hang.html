@@ -42,16 +42,24 @@ header { background: #fff; border-bottom: 1px solid #E9DDC3; padding: 1vh 0; fle
 .crumb { font-size: clamp(12px, 0.8vw, 14px); color: #6B5A4A; margin-bottom: 1vh; }
 
 .card { background: #fff; border: 1px solid #E9DDC3; border-radius: 10px; padding: 15px; }
-.st { padding: 12px 0; border-bottom: 1px solid #E9DDC3; font-size: clamp(13px, 0.9vw, 15px); line-height: 1.5; }
+.st { padding: 12px 0; font-size: clamp(13px, 0.9vw, 15px); line-height: 1.6; }
 
-.ph {
+/* Khung chứa bản đồ Google Map */
+.map-box {
   background: linear-gradient(135deg,#EAD9B5,#D4B77A);
-  border-radius: 10px; flex: 2 1 400px;
-  display: flex; align-items: center; justify-content: center; color: #5A4210;
+  border-radius: 10px; 
+  flex: 2 1 400px;
+  overflow: hidden;
   height: clamp(240px, 35vh, 400px);
 }
 
-select { padding: 8px 12px; border: 1px solid #D9C9A5; border-radius: 6px; background: #fff; }
+.map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+select { padding: 8px 12px; border: 1px solid #D9C9A5; border-radius: 6px; background: #fff; font-family: 'Be Vietnam Pro', sans-serif; cursor: pointer; }
 
 footer { background: #2B1A14; color: #F4EBD6; padding: 1.5vh 0; flex-shrink: 0; }
 
@@ -88,57 +96,36 @@ footer { background: #2B1A14; color: #F4EBD6; padding: 1.5vh 0; flex-shrink: 0; 
       <div class="crumb"><a href="index.html">Trang chủ</a> / <strong>Hệ Thống Cửa Hàng</strong></div>
       <h2 style="font-size:clamp(22px, 2vw, 32px); color:#7A1F2B; margin-bottom:1.5vh;">Hệ Thống Cửa Hàng</h2>
       
+      <!-- Bộ lọc tỉnh thành -->
       <div class="card" style="margin-bottom:1.5vh; padding:12px;">
         <div style="display:flex; gap:20px; align-items:center;">
           <label style="font-size:13px; font-weight:600;">Chọn tỉnh thành: 
-            <select><option>Khánh Hòa</option><option>TP. Hồ Chí Minh</option></select>
+            <select id="citySelect" onchange="changeStoreLocation()">
+              <option value="nhatrang">Khánh Hòa (Nha Trang)</option>
+              <option value="hcm">TP. Hồ Chí Minh</option>
+            </select>
           </label>
         </div>
       </div>
 
+      <!-- Khu vực hiển thị thông tin và bản đồ -->
       <div style="display:flex; gap:2vw; align-items:stretch;">
-        <div class="card" style="flex:1 1 300px;">
-          <div class="st"><strong style="color:#7A1F2B">Trụ sở – Nha Trang</strong><br>159 Phong Châu, Phường Nam Nha Trang, Khánh Hòa<br>Điện thoại: 0779 493 886</div>
+        <div class="card" style="flex:1 1 300px; display:flex; flex-direction:column; justify-content:center;">
+          <div class="st">
+            <strong id="storeName" style="color:#7A1F2B; font-size:18px; font-family:'Playfair Display',serif;">Trụ sở chính – Nha Trang</strong><br><br>
+            <span id="storeAddress">📍 Địa chỉ: 159 Phong Châu, Phường Nam Nha Trang, Khánh Hòa</span><br><br>
+            <span id="storePhone">📞 Điện thoại: 0779 493 886</span>
+          </div>
         </div>
-        <div class="ph">[Bản đồ vị trí cửa hàng]</div>
+        
+        <!-- Google Map Iframe tự động đổi theo lựa chọn -->
+        <div class="map-box">
+          <iframe id="storeMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.317585098904!2d109.1824!3d12.2388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDE0JzE5LjciTiAxMDnCsDEwJzU2LjciRQ!5e0!3m2!1svi!2svn!4v1600000000000" allowfullscreen="" loading="lazy"></iframe>
+        </div>
       </div>
     </div>
   </section>
 
-<div class="container">
-		<div class="wrapbox-content">	
-			<div class="heading-pageDetail"><div class="container"><h1 class="text-center">Hệ Thống Cửa Hàng</h1></div></div>
-			<div class="row">
-				<div class="col-lg-4 col-md-12 col-12 wrapbox-left">
-					<div class="wrapbox-info">
-						<h2>Tìm cửa hàng</h2>
-						<div class="box-filter">
-							<div class="filter-select">
-								<div class="select-item">
-									<label for="filter-province">Chọn tỉnh thành</label>
-									<div class="field-select">
-										<select class="filter-item-province" id="city"><option value="Thành Phố Hồ Chí Minh">Thành Phố Hồ Chí Minh</option><option value="Hà Nội">Hà Nội</option><option value="Lâm Đồng">Lâm Đồng</option><option value="Đắk Lắk">Đắk Lắk</option><option value="Khánh Hoà">Khánh Hoà</option><option value="Cần Thơ">Cần Thơ</option><option value="Tiền Giang">Tiền Giang</option><option value="Đà Nẵng">Đà Nẵng</option><option value="Huế">Huế</option></select>
-									</div>
-								</div>
-								<div class="select-item">
-									<label for="filter-item-store">Chọn cửa hàng</label>
-									<div class="field-select">
-										<select class="filter-item-store" id="shop"><option value="Chợ Quán">Chợ Quán</option><option value="Xuân Hoà">Xuân Hoà</option></select>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="box-content boxscroll" id="store-info"><div class="store-item"><h3 class="store--name">Showroom Yến Sào Nha Trang - CN 811</h3><p class="store--address">811 Trần Hưng Đạo, Phường Chợ Quán, TP. Hồ Chí Minh</p><p class="store--time">Thời gian hoạt động: <span>08:00 - 21:00 (Kể cả CN và các ngày Lễ)</span></p><p class="store--hotline">Điện thoại: <span>0949477886 </span></p></div></div>
-					</div> 
-				</div>
-				<div class="col-lg-8 col-md-12 col-12 wrapbox-right">
-					<div class="box-map" id="boxMap"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.7329630212203!2d106.67830760819089!3d10.755051889348167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f69d95e92ff%3A0x9137f662159a7633!2zU2hvd3Jvb20gQ1RDUCBZ4bq_biBTw6BvIE5oYSBUcmFuZyBDTiBUcuG6p24gSMawbmcgxJDhuqFvIFRQSENN!5e0!3m2!1svi!2s!4v1788147925870!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-				</div>
-			</div>			
-		</div>
-	</div>
-
-  
   <footer>
     <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; font-size:clamp(12px, 0.8vw, 14px);">
       <div><strong>Yến Sào Nha Trang</strong> - 159 Phong Châu, TP. Nha Trang</div>
@@ -146,5 +133,35 @@ footer { background: #2B1A14; color: #F4EBD6; padding: 1.5vh 0; flex-shrink: 0; 
     </div>
   </footer>
 
+<script>
+// Dữ liệu thông tin cửa hàng cho từng khu vực
+const storeData = {
+  nhatrang: {
+    name: "Trụ sở chính – Nha Trang",
+    address: "📍 Địa chỉ: 159 Phong Châu, Phường Nam Nha Trang, Khánh Hòa",
+    phone: "📞 Điện thoại: 0779 493 886",
+    map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.317585098904!2d109.1824!3d12.2388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDE0JzE5LjciTiAxMDnCsDEwJzU2LjciRQ!5e0!3m2!1svi!2svn!4v1600000000000"
+  },
+  hcm: {
+    name: "Chi nhánh TP. Hồ Chí Minh",
+    address: "📍 Địa chỉ: 123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh",
+    phone: "📞 Điện thoại: 0905 123 456",
+    map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4970412574247!2d106.7004!3d10.7769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ2JzM2LjgiTiAxMDbCsDQyJzAxLjQiRQ!5e0!3m2!1svi!2svn!4v1600000000000"
+  }
+};
+
+function changeStoreLocation() {
+  const selectedCity = document.getElementById("citySelect").value;
+  const store = storeData[selectedCity];
+
+  // Cập nhật nội dung text
+  document.getElementById("storeName").textContent = store.name;
+  document.getElementById("storeAddress").textContent = store.address;
+  document.getElementById("storePhone").textContent = store.phone;
+  
+  // Cập nhật bản đồ Google Map tương ứng
+  document.getElementById("storeMap").src = store.map;
+}
+</script>
 </body>
 </html>
