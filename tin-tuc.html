@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<title>Tin Tức - Yến Sào Nha Trang</title>
+<title>Tin Tức & Cẩm Nang Sức Khỏe - Yến Sào Nha Trang</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap">
 <style>
 html, body {
@@ -42,9 +42,10 @@ header { background: #fff; border-bottom: 1px solid #E9DDC3; padding: 1vh 0; fle
 .eyebrow { font-size: clamp(11px, 0.8vw, 13px); letter-spacing: .12em; text-transform: uppercase; color: #8A6212; font-weight: 600; margin-bottom: 0.8vh; }
 
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2vw; }
-.card { background: #fff; border: 1px solid #E9DDC3; border-radius: 10px; overflow: hidden; }
-.card .b { padding: 18px; }
-.ph { background: linear-gradient(135deg,#EAD9B5,#D4B77A); height: clamp(140px, 22vh, 240px); display: flex; align-items: center; justify-content: center; color: #5A4210; font-size: 14px; }
+.card { background: #fff; border: 1px solid #E9DDC3; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(43,26,20,0.08); }
+.card .b { padding: 18px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.ph { background: linear-gradient(135deg,#EAD9B5,#D4B77A); height: clamp(130px, 20vh, 200px); display: flex; align-items: center; justify-content: center; color: #5A4210; font-size: 13px; font-weight: 600; }
 
 footer { background: #2B1A14; color: #F4EBD6; padding: 2vh 0; flex-shrink: 0; }
 
@@ -79,14 +80,47 @@ footer { background: #2B1A14; color: #F4EBD6; padding: 2vh 0; flex-shrink: 0; }
 
   <section class="main-sec">
     <div class="wrap">
-      <div style="text-align:center; margin-bottom:3vh;">
-        <p class="eyebrow">Tin tức</p>
-        <h2 style="font-size:clamp(26px, 2.4vw, 38px); color:#7A1F2B">Kiến thức về yến sào</h2>
+      <div style="text-align:center; margin-bottom:2.5vh;">
+        <p class="eyebrow">Cẩm nang sức khỏe</p>
+        <h2 style="font-size:clamp(24px, 2.2vw, 36px); color:#7A1F2B">Tin tức & Bí quyết bồi bổ cho người cao tuổi</h2>
       </div>
+      
       <div class="grid">
-        <a class="card" href="#"><div class="ph">[Ảnh bài viết]</div><div class="b"><span style="font-size:12px; color:#8A6212">Hôm nay</span><h3 style="font-size:clamp(15px, 1.1vw, 18px); margin-top:6px">Công dụng của yến sào đối với sức khỏe</h3></div></a>
-        <a class="card" href="#"><div class="ph">[Ảnh bài viết]</div><div class="b"><span style="font-size:12px; color:#8A6212">Hôm nay</span><h3 style="font-size:clamp(15px, 1.1vw, 18px); margin-top:6px">Cách chưng yến đúng cách tại nhà</h3></div></a>
-        <a class="card" href="#"><div class="ph">[Ảnh bài viết]</div><div class="b"><span style="font-size:12px; color:#8A6212">Hôm nay</span><h3 style="font-size:clamp(15px, 1.1vw, 18px); margin-top:6px">Cách phân biệt yến thật và yến giả</h3></div></a>
+        <!-- Bài viết 1 -->
+        <a class="card" href="bai-viet-1.html">
+          <div class="ph">[Ảnh: Chăm sóc người cao tuổi]</div>
+          <div class="b">
+            <div>
+              <span style="font-size:12px; color:#8A6212">Sức khỏe người cao tuổi</span>
+              <h3 style="font-size:clamp(15px, 1.1vw, 18px); margin-top:6px; color:#7A1F2B;">Người già ăn yến sào có tốt không? Lợi ích sức khỏe & khuyên dùng y khoa</h3>
+            </div>
+            <span style="font-size:13px; color:#7A1F2B; font-weight:600; margin-top:12px;">Đọc chi tiết →</span>
+          </div>
+        </a>
+
+        <!-- Bài viết 2 -->
+        <a class="card" href="bai-viet-2.html">
+          <div class="ph">[Ảnh: Yến chưng không đường]</div>
+          <div class="b">
+            <div>
+              <span style="font-size:12px; color:#8A6212">Dinh dưỡng tiểu đường</span>
+              <h3 style="font-size:clamp(15px, 1.1vw, 18px); margin-top:6px; color:#7A1F2B;">Top các loại yến chưng sẵn không đường tốt nhất cho người cao tuổi bị tiểu đường</h3>
+            </div>
+            <span style="font-size:13px; color:#7A1F2B; font-weight:600; margin-top:12px;">Đọc chi tiết →</span>
+          </div>
+        </a>
+
+        <!-- Bài viết 3 -->
+        <a class="card" href="bai-viet-3.html">
+          <div class="ph">[Ảnh: Chọn mua yến nguyên chất]</div>
+          <div class="b">
+            <div>
+              <span style="font-size:12px; color:#8A6212">Kinh nghiệm mua sắm</span>
+              <h3 style="font-size:clamp(15px, 1.1vw, 18px); margin-top:6px; color:#7A1F2B;">Hướng dẫn 3 bước chọn mua yến sào nguyên chất 100% bồi bổ sức khỏe cha mẹ</h3>
+            </div>
+            <span style="font-size:13px; color:#7A1F2B; font-weight:600; margin-top:12px;">Đọc chi tiết →</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
