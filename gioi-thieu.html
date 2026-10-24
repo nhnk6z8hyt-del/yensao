@@ -199,7 +199,22 @@ footer {
   <section class="main-sec">
     <div class="wrap">
       <div class="grid-content">
-        <div class="ph">[Ảnh: Nhà yến / Quy trình chế biến yến sào]</div>
+
+        
+        <!-- Khung Banner Slideshow 3 ảnh -->
+        <div class="slider-container">
+          <div class="slide active"><img src="images/about1.webp" alt="Giới thiệu 1"></div>
+          <div class="slide"><img src="images/about2.webp" alt="Giới thiệu 2"></div>
+          <div class="slide"><img src="images/about3.webp" alt="Giới thiệu 3"></div>
+          
+          <div class="slide-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+          </div>
+        </div>
+
+        
         <div style="flex: 1 1 450px;">
           <p class="eyebrow">Giới thiệu</p>
           <h1 style="font-size:clamp(28px, 2.8vw, 44px); color:#7A1F2B; line-height:1.2;">Câu chuyện yến sào Nha Trang</h1>
