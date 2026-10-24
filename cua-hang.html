@@ -2,71 +2,115 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<title>Hệ Thống Cửa Hàng - Yến Sào Nha Trang</title>
+<title>Cửa Hàng - Yến Sào Nha Trang</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap">
 <style>
-body{margin:0;font-family:'Be Vietnam Pro',sans-serif;color:#2B1A14;background:#FBF6EC}
-a{color:#2B1A14;text-decoration:none}a:hover{color:#7A1F2B}
-h1,h2,h3{font-family:'Playfair Display',serif;margin:0}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-.sec{padding:72px 0}
-.btn{display:inline-block;background:#7A1F2B;color:#fff;padding:13px 26px;border-radius:6px;font-weight:600}
-.nav{display:flex;flex-wrap:wrap;gap:6px 28px;align-items:center}
-.nav a{font-weight:500;padding:12px 0}
-.nav a.active{color:#7A1F2B;border-bottom:2px solid #7A1F2B}
-.crumb{font-size:14px;color:#6B5A4A;padding:0 0 18px}
-.card{background:#fff;border:1px solid #E9DDC3;border-radius:10px;overflow:hidden}
-.st{padding:16px;border-bottom:1px solid #E9DDC3;font-size:14px;line-height:1.7}
-select{padding:10px 14px;border:1px solid #D9C9A5;border-radius:6px;background:#fff;min-width:220px}
-label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500}
-.ph{background:linear-gradient(135deg,#EAD9B5,#D4B77A);display:flex;align-items:center;justify-content:center;color:#5A4210;font-size:14px}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #2B1A14;
+  background: #FBF6EC;
+}
+
+body { display: flex; flex-direction: column; justify-content: space-between; }
+a { color: #2B1A14; text-decoration: none; }
+a:hover { color: #7A1F2B; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; margin: 0; }
+
+.wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 3vw; box-sizing: border-box; }
+
+.topbar { background: #7A1F2B; color: #fff; font-size: clamp(12px, 0.8vw, 14px); padding: 0.6vh 0; flex-shrink: 0; }
+header { background: #fff; border-bottom: 1px solid #E9DDC3; padding: 1vh 0; flex-shrink: 0; }
+
+.nav { display: flex; gap: 2vw; align-items: center; }
+.nav a { font-weight: 500; font-size: clamp(13px, 0.9vw, 16px); }
+.nav a.active { color: #7A1F2B; font-weight: 600; border-bottom: 2px solid #7A1F2B; }
+
+.btn { display: inline-block; background: #7A1F2B; color: #fff; padding: 0.8vh 1.6vw; border-radius: 6px; font-weight: 600; font-size: clamp(13px, 0.9vw, 15px); }
+
+.main-sec {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5vh 0;
+}
+
+.crumb { font-size: clamp(12px, 0.8vw, 14px); color: #6B5A4A; margin-bottom: 1vh; }
+
+.card { background: #fff; border: 1px solid #E9DDC3; border-radius: 10px; padding: 15px; }
+.st { padding: 12px 0; border-bottom: 1px solid #E9DDC3; font-size: clamp(13px, 0.9vw, 15px); line-height: 1.5; }
+
+.ph {
+  background: linear-gradient(135deg,#EAD9B5,#D4B77A);
+  border-radius: 10px; flex: 2 1 400px;
+  display: flex; align-items: center; justify-content: center; color: #5A4210;
+  height: clamp(240px, 35vh, 400px);
+}
+
+select { padding: 8px 12px; border: 1px solid #D9C9A5; border-radius: 6px; background: #fff; }
+
+footer { background: #2B1A14; color: #F4EBD6; padding: 1.5vh 0; flex-shrink: 0; }
+
+@media (max-height: 600px), (max-width: 768px) {
+  html, body { overflow: auto; height: auto; }
+}
 </style>
 </head>
 <body>
 
-<div style="background:#7A1F2B;color:#fff;font-size:14px;padding:10px 0">
-  <div class="wrap" style="display:flex;justify-content:space-between"><span>Hotline: 0779 493 886</span><span>Yến sào Khánh Hòa – Nha Trang</span></div>
-</div>
-
-<header style="background:#fff;border-bottom:1px solid #E9DDC3">
-  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:12px 0">
-    <a href="index.html" style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#7A1F2B">Yến Sào Nha Trang</a>
-    <nav class="nav">
-      <a href="index.html">Trang chủ</a>
-      <a href="gioi-thieu.html">Giới thiệu</a>
-      <a href="san-pham.html">Sản phẩm</a>
-      <a href="tin-tuc.html">Tin tức</a>
-      <a href="cua-hang.html" class="active">Hệ thống cửa hàng</a>
-    </nav>
-    <a class="btn" href="san-pham.html">Đặt hàng</a>
-  </div>
-</header>
-
-<section id="cua-hang" class="sec" style="background:#F4EBD6;padding-top:36px">
-  <div class="wrap">
-    <div class="crumb"><a href="index.html">Trang chủ</a> / <strong>Hệ Thống Cửa Hàng</strong></div>
-    <h2 style="font-size:32px;color:#7A1F2B;margin-bottom:22px">Hệ Thống Cửa Hàng</h2>
-    <div class="card" style="padding:22px;margin-bottom:24px">
-      <h3 style="font-size:20px;margin-bottom:14px">Tìm cửa hàng</h3>
-      <div style="display:flex;flex-wrap:wrap;gap:20px">
-        <label class="f">Chọn tỉnh thành<select><option>Khánh Hòa</option><option>TP. Hồ Chí Minh</option></select></label>
-        <label class="f">Chọn cửa hàng<select><option>Trụ sở – Nha Trang</option></select></label>
-      </div>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
-      <div class="card" style="flex:1 1 320px;max-width:420px">
-        <div class="st"><strong style="color:#7A1F2B">Trụ sở – Nha Trang</strong><br>159 Phong Châu, Phường Nam Nha Trang, Khánh Hòa<br>Điện thoại: 0779 493 886</div>
-      </div>
-      <div class="ph" style="flex:2 1 420px;min-height:340px;border-radius:10px;flex-direction:column;gap:10px">[Bản đồ vị trí cửa hàng]</div>
+  <div class="topbar">
+    <div class="wrap" style="display:flex; justify-content:space-between;">
+      <span>Hotline: 0779 493 886 &nbsp;|&nbsp; Giao hàng toàn quốc</span>
+      <span>Yến sào Khánh Hòa – Nha Trang</span>
     </div>
   </div>
-</section>
 
-<footer style="background:#2B1A14;color:#F4EBD6;padding:40px 0">
-  <div class="wrap" style="display:flex;justify-content:space-between;font-size:14px">
-    <div><strong>Yến Sào Nha Trang</strong><br>159 Phong Châu, TP. Nha Trang</div>
-    <div>Hotline: 0779 493 886<br><a href="index.html" style="color:#F4EBD6">Trang chủ</a> · <a href="cua-hang.html" style="color:#F4EBD6">Cửa hàng</a></div>
-  </div>
-</footer>
+  <header>
+    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" style="font-family:'Playfair Display',serif; font-size:clamp(20px, 1.8vw, 26px); font-weight:700; color:#7A1F2B">Yến Sào Nha Trang</a>
+      <nav class="nav">
+        <a href="index.html">Trang chủ</a>
+        <a href="gioi-thieu.html">Giới thiệu</a>
+        <a href="san-pham.html">Sản phẩm</a>
+        <a href="tin-tuc.html">Tin tức</a>
+        <a href="cua-hang.html" class="active">Hệ thống cửa hàng</a>
+      </nav>
+      <a class="btn" href="san-pham.html">Đặt hàng</a>
+    </div>
+  </header>
+
+  <section class="main-sec">
+    <div class="wrap">
+      <div class="crumb"><a href="index.html">Trang chủ</a> / <strong>Hệ Thống Cửa Hàng</strong></div>
+      <h2 style="font-size:clamp(22px, 2vw, 32px); color:#7A1F2B; margin-bottom:1.5vh;">Hệ Thống Cửa Hàng</h2>
+      
+      <div class="card" style="margin-bottom:1.5vh; padding:12px;">
+        <div style="display:flex; gap:20px; align-items:center;">
+          <label style="font-size:13px; font-weight:600;">Chọn tỉnh thành: 
+            <select><option>Khánh Hòa</option><option>TP. Hồ Chí Minh</option></select>
+          </label>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:2vw; align-items:stretch;">
+        <div class="card" style="flex:1 1 300px;">
+          <div class="st"><strong style="color:#7A1F2B">Trụ sở – Nha Trang</strong><br>159 Phong Châu, Phường Nam Nha Trang, Khánh Hòa<br>Điện thoại: 0779 493 886</div>
+        </div>
+        <div class="ph">[Bản đồ vị trí cửa hàng]</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; font-size:clamp(12px, 0.8vw, 14px);">
+      <div><strong>Yến Sào Nha Trang</strong> - 159 Phong Châu, TP. Nha Trang</div>
+      <div>Hotline: 0779 493 886</div>
+    </div>
+  </footer>
+
 </body>
 </html>
