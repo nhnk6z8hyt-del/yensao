@@ -5,58 +5,146 @@
 <title>Giới Thiệu - Yến Sào Nha Trang</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap">
 <style>
-body{margin:0;font-family:'Be Vietnam Pro',sans-serif;color:#2B1A14;background:#FBF6EC}
-a{color:#2B1A14;text-decoration:none}a:hover{color:#7A1F2B}
-h1,h2,h3{font-family:'Playfair Display',serif;margin:0}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-.sec{padding:72px 0}
-.eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A6212;font-weight:600;margin:0 0 8px}
-.btn{display:inline-block;background:#7A1F2B;color:#fff;padding:13px 26px;border-radius:6px;font-weight:600}
-.btn2{display:inline-block;border:1.5px solid #7A1F2B;color:#7A1F2B;padding:12px 26px;border-radius:6px;font-weight:600}
-.nav{display:flex;flex-wrap:wrap;gap:6px 28px;align-items:center}
-.nav a{font-weight:500;padding:12px 0}
-.nav a.active{color:#7A1F2B;border-bottom:2px solid #7A1F2B}
-.ph{background:linear-gradient(135deg,#EAD9B5,#D4B77A);display:flex;align-items:center;justify-content:center;color:#5A4210;font-size:14px;text-align:center;padding:12px}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #2B1A14;
+  background: #FBF6EC;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+a { color: #2B1A14; text-decoration: none; }
+a:hover { color: #7A1F2B; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; margin: 0; }
+
+.wrap {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 3vw;
+  box-sizing: border-box;
+}
+
+.topbar {
+  background: #7A1F2B;
+  color: #fff;
+  font-size: clamp(12px, 0.8vw, 14px);
+  padding: 0.6vh 0;
+  flex-shrink: 0;
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #E9DDC3;
+  padding: 1vh 0;
+  flex-shrink: 0;
+}
+
+.nav { display: flex; gap: 2vw; align-items: center; }
+.nav a { font-weight: 500; font-size: clamp(13px, 0.9vw, 16px); }
+.nav a.active { color: #7A1F2B; font-weight: 600; border-bottom: 2px solid #7A1F2B; }
+
+.btn {
+  display: inline-block; background: #7A1F2B; color: #fff;
+  padding: 0.8vh 1.6vw; border-radius: 6px; font-weight: 600;
+  font-size: clamp(13px, 0.9vw, 15px);
+}
+.btn2 {
+  display: inline-block; border: 1.5px solid #7A1F2B; color: #7A1F2B;
+  padding: 0.7vh 1.6vw; border-radius: 6px; font-weight: 600;
+  font-size: clamp(13px, 0.9vw, 15px);
+}
+
+.main-sec {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 2vh 0;
+}
+
+.grid-content {
+  display: flex;
+  align-items: center;
+  gap: 4vw;
+  width: 100%;
+}
+
+.ph {
+  background: linear-gradient(135deg,#EAD9B5,#D4B77A);
+  display: flex; align-items: center; justify-content: center;
+  color: #5A4210; font-size: clamp(14px, 1.1vw, 18px);
+  height: clamp(280px, 45vh, 500px);
+  border-radius: 14px; flex: 1 1 400px;
+}
+
+.eyebrow {
+  font-size: clamp(11px, 0.8vw, 13px);
+  letter-spacing: .12em; text-transform: uppercase;
+  color: #8A6212; font-weight: 600; margin-bottom: 0.8vh;
+}
+
+footer {
+  background: #2B1A14; color: #F4EBD6;
+  padding: 2vh 0; flex-shrink: 0;
+}
+
+@media (max-height: 600px), (max-width: 768px) {
+  html, body { overflow: auto; height: auto; }
+}
 </style>
 </head>
 <body>
 
-<div style="background:#7A1F2B;color:#fff;font-size:14px;padding:10px 0">
-  <div class="wrap" style="display:flex;justify-content:space-between"><span>Hotline: 0779 493 886</span><span>Yến sào Khánh Hòa – Nha Trang</span></div>
-</div>
-
-<header style="background:#fff;border-bottom:1px solid #E9DDC3">
-  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:12px 0">
-    <a href="index.html" style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#7A1F2B">Yến Sào Nha Trang</a>
-    <nav class="nav">
-      <a href="index.html">Trang chủ</a>
-      <a href="gioi-thieu.html" class="active">Giới thiệu</a>
-      <a href="san-pham.html">Sản phẩm</a>
-      <a href="tin-tuc.html">Tin tức</a>
-      <a href="cua-hang.html">Hệ thống cửa hàng</a>
-    </nav>
-    <a class="btn" href="san-pham.html">Đặt hàng</a>
-  </div>
-</header>
-
-<section id="gioi-thieu" class="sec">
-  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:48px;align-items:center">
-    <div class="ph" style="flex:1 1 380px;height:360px;border-radius:14px">[Ảnh: nhà yến / quy trình chế biến]</div>
-    <div style="flex:1 1 440px">
-      <p class="eyebrow">Giới thiệu</p>
-      <h2 style="font-size:36px;color:#7A1F2B;line-height:1.2">Câu chuyện yến sào Nha Trang</h2>
-      <p style="line-height:1.8;margin:16px 0">Nha Trang – Khánh Hòa là vùng đất nổi tiếng với nghề khai thác yến sào. Chúng tôi mong muốn mang đến sản phẩm yến chất lượng, minh bạch về nguồn gốc và quy trình.</p>
-      <p style="line-height:1.8;margin:0 0 22px">Mỗi sản phẩm được chọn lọc kỹ lưỡng, từ yến thô đến yến chưng sẵn, phù hợp để dùng hằng ngày hoặc làm quà biếu.</p>
-      <a class="btn2" href="cua-hang.html">Tìm cửa hàng gần bạn</a>
+  <div class="topbar">
+    <div class="wrap" style="display:flex; justify-content:space-between;">
+      <span>Hotline: 0779 493 886 &nbsp;|&nbsp; Giao hàng toàn quốc</span>
+      <span>Yến sào Khánh Hòa – Nha Trang</span>
     </div>
   </div>
-</section>
 
-<footer style="background:#2B1A14;color:#F4EBD6;padding:40px 0">
-  <div class="wrap" style="display:flex;justify-content:space-between;font-size:14px">
-    <div><strong>Yến Sào Nha Trang</strong><br>159 Phong Châu, TP. Nha Trang</div>
-    <div>Hotline: 0779 493 886<br><a href="index.html" style="color:#F4EBD6">Trang chủ</a> · <a href="gioi-thieu.html" style="color:#F4EBD6">Giới thiệu</a> · <a href="san-pham.html" style="color:#F4EBD6">Sản phẩm</a></div>
-  </div>
-</footer>
+  <header>
+    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" style="font-family:'Playfair Display',serif; font-size:clamp(20px, 1.8vw, 26px); font-weight:700; color:#7A1F2B">Yến Sào Nha Trang</a>
+      <nav class="nav">
+        <a href="index.html">Trang chủ</a>
+        <a href="gioi-thieu.html" class="active">Giới thiệu</a>
+        <a href="san-pham.html">Sản phẩm</a>
+        <a href="tin-tuc.html">Tin tức</a>
+        <a href="cua-hang.html">Hệ thống cửa hàng</a>
+      </nav>
+      <a class="btn" href="san-pham.html">Đặt hàng</a>
+    </div>
+  </header>
+
+  <section class="main-sec">
+    <div class="wrap">
+      <div class="grid-content">
+        <div class="ph">[Ảnh: Nhà yến / Quy trình chế biến yến sào]</div>
+        <div style="flex: 1 1 450px;">
+          <p class="eyebrow">Giới thiệu</p>
+          <h1 style="font-size:clamp(28px, 2.8vw, 44px); color:#7A1F2B; line-height:1.2;">Câu chuyện yến sào Nha Trang</h1>
+          <p style="font-size:clamp(13px, 1vw, 16px); line-height:1.6; margin:1.5vh 0;">Nha Trang – Khánh Hòa là vùng đất nổi tiếng với nghề khai thác yến sào. Chúng tôi mong muốn mang đến sản phẩm yến chất lượng, minh bạch về nguồn gốc và quy trình chế biến.</p>
+          <p style="font-size:clamp(13px, 1vw, 16px); line-height:1.6; margin-bottom:2.5vh;">Mỗi sản phẩm được chọn lọc kỹ lưỡng, từ yến thô đến yến chưng sẵn, phù hợp để dùng hằng ngày hoặc làm quà biếu cao cấp.</p>
+          <a class="btn2" href="cua-hang.html">Tìm cửa hàng gần bạn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; font-size:clamp(12px, 0.8vw, 14px);">
+      <div><strong style="font-family:'Playfair Display',serif; font-size:clamp(15px, 1.1vw, 18px)">Yến Sào Nha Trang</strong><br>159 Phong Châu, TP. Nha Trang</div>
+      <div>Hotline: 0779 493 886<br><a href="index.html" style="color:#F4EBD6">Trang chủ</a> · <a href="gioi-thieu.html" style="color:#F4EBD6">Giới thiệu</a></div>
+    </div>
+  </footer>
+
 </body>
 </html>
