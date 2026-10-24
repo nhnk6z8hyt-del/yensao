@@ -5,96 +5,171 @@
 <title>Sản Phẩm - Yến Sào Nha Trang</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap">
 <style>
-body{margin:0;font-family:'Be Vietnam Pro',sans-serif;color:#2B1A14;background:#FBF6EC}
-a{color:#2B1A14;text-decoration:none}a:hover{color:#7A1F2B}
-h1,h2,h3{font-family:'Playfair Display',serif;margin:0}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-.sec{padding:72px 0}
-.btn{display:inline-block;background:#7A1F2B;color:#fff;padding:13px 26px;border-radius:6px;font-weight:600}
-.nav{display:flex;flex-wrap:wrap;gap:6px 28px;align-items:center}
-.nav a{font-weight:500;padding:12px 0}
-.nav a.active{color:#7A1F2B;border-bottom:2px solid #7A1F2B}
-.crumb{font-size:14px;color:#6B5A4A;padding:0 0 18px}
-.pg{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
-.side{flex:0 0 250px;background:#fff;border:1px solid #E9DDC3;border-radius:10px;padding:20px;box-sizing:border-box}
-.side h4{margin:0 0 8px;font-size:14px;text-transform:uppercase}
-.side ul{list-style:none;margin:0 0 20px;padding:0;font-size:14px;line-height:2}
-.side ul ul{margin:0 0 4px 14px;color:#5C4A3A}
-.chk{display:flex;gap:8px;align-items:center;font-size:14px;min-height:32px}
-.pmain{flex:1 1 560px;min-width:0}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
-.card{background:#fff;border:1px solid #E9DDC3;border-radius:10px;overflow:hidden}
-.card .b{padding:18px}
-.pc{position:relative}
-.gift{position:absolute;top:10px;left:10px;background:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center}
-.vend{font-size:12px;color:#8A6212;font-weight:600;text-transform:uppercase}
-.pn{font-size:15px;font-weight:500;line-height:1.4;margin:4px 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:42px}
-.add{width:100%;margin-top:12px;border:1.5px solid #7A1F2B;background:#fff;color:#7A1F2B;border-radius:6px;padding:11px;font-weight:600;cursor:pointer}
-select{padding:10px 14px;border:1px solid #D9C9A5;border-radius:6px;background:#fff;min-width:220px}
-label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500}
-.ph{background:linear-gradient(135deg,#EAD9B5,#D4B77A);display:flex;align-items:center;justify-content:center;color:#5A4210;font-size:14px}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #2B1A14;
+  background: #FBF6EC;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+a { color: #2B1A14; text-decoration: none; }
+a:hover { color: #7A1F2B; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; margin: 0; }
+
+.wrap {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 3vw;
+  box-sizing: border-box;
+}
+
+.topbar { background: #7A1F2B; color: #fff; font-size: clamp(12px, 0.8vw, 14px); padding: 0.6vh 0; flex-shrink: 0; }
+header { background: #fff; border-bottom: 1px solid #E9DDC3; padding: 1vh 0; flex-shrink: 0; }
+
+.nav { display: flex; gap: 2vw; align-items: center; }
+.nav a { font-weight: 500; font-size: clamp(13px, 0.9vw, 16px); }
+.nav a.active { color: #7A1F2B; font-weight: 600; border-bottom: 2px solid #7A1F2B; }
+
+.btn { display: inline-block; background: #7A1F2B; color: #fff; padding: 0.8vh 1.6vw; border-radius: 6px; font-weight: 600; font-size: clamp(13px, 0.9vw, 15px); }
+
+/* MAIN WORKSPACE KHÔNG VƯỢT QUÁ MÀN HÌNH PC */
+.main-sec {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5vh 0;
+  min-height: 0; /* Quan trọng để flex scroll hoạt động */
+}
+
+.crumb { font-size: clamp(12px, 0.8vw, 14px); color: #6B5A4A; margin-bottom: 1vh; flex-shrink: 0; }
+
+.pg {
+  display: flex;
+  gap: 2vw;
+  flex: 1;
+  min-height: 0;
+}
+
+.side {
+  flex: 0 0 240px;
+  background: #fff;
+  border: 1px solid #E9DDC3;
+  border-radius: 10px;
+  padding: 15px;
+  overflow-y: auto; /* Cuộn nội dung bộ lọc nếu cần */
+  font-size: clamp(12px, 0.8vw, 14px);
+}
+.side h4 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; color: #7A1F2B; }
+.side ul { list-style: none; margin: 0 0 15px; padding: 0; line-height: 1.8; }
+.chk { display: flex; gap: 8px; align-items: center; min-height: 28px; }
+
+.pmain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.pheader {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1.5vh; flex-shrink: 0;
+}
+
+/* KHU VỰC CHỨA SẢN PHẨM TỰ SCROLL NỘI BỘ MẦM KHÔNG BỊ TRÀO RA MÀN HÌNH */
+.pgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  overflow-y: auto;
+  padding-right: 5px;
+  flex: 1;
+}
+
+.card { background: #fff; border: 1px solid #E9DDC3; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+.card .b { padding: 12px; display: flex; flex-direction: column; flex: 1; }
+.ph { background: linear-gradient(135deg,#EAD9B5,#D4B77A); display: flex; align-items: center; justify-content: center; height: 140px; color: #5A4210; font-size: 13px; }
+.vend { font-size: 11px; color: #8A6212; font-weight: 600; text-transform: uppercase; }
+.pn { font-size: 14px; font-weight: 500; margin: 4px 0; line-height: 1.3; }
+.add { width: 100%; margin-top: auto; border: 1.5px solid #7A1F2B; background: #fff; color: #7A1F2B; border-radius: 6px; padding: 6px; font-weight: 600; cursor: pointer; }
+
+footer { background: #2B1A14; color: #F4EBD6; padding: 1.5vh 0; flex-shrink: 0; }
+
+@media (max-height: 600px), (max-width: 768px) {
+  html, body { overflow: auto; height: auto; }
+  .pg { flex-direction: column; }
+}
 </style>
 </head>
 <body>
 
-<div style="background:#7A1F2B;color:#fff;font-size:14px;padding:10px 0">
-  <div class="wrap" style="display:flex;justify-content:space-between"><span>Hotline: 0779 493 886</span><span>Yến sào Khánh Hòa – Nha Trang</span></div>
-</div>
-
-<header style="background:#fff;border-bottom:1px solid #E9DDC3">
-  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:12px 0">
-    <a href="index.html" style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#7A1F2B">Yến Sào Nha Trang</a>
-    <nav class="nav">
-      <a href="index.html">Trang chủ</a>
-      <a href="gioi-thieu.html">Giới thiệu</a>
-      <a href="san-pham.html" class="active">Sản phẩm</a>
-      <a href="tin-tuc.html">Tin tức</a>
-      <a href="cua-hang.html">Hệ thống cửa hàng</a>
-    </nav>
-    <a class="btn" href="san-pham.html">Đặt hàng</a>
+  <div class="topbar">
+    <div class="wrap" style="display:flex; justify-content:space-between;">
+      <span>Hotline: 0779 493 886 &nbsp;|&nbsp; Giao hàng toàn quốc</span>
+      <span>Yến sào Khánh Hòa – Nha Trang</span>
+    </div>
   </div>
-</header>
 
-<section class="sec" style="background:#FBF6EC;padding-top:36px">
-  <div class="wrap">
-    <div class="crumb"><a href="index.html">Trang chủ</a> / <strong>Tất cả sản phẩm</strong></div>
-    <div class="pg">
-      <aside class="side">
-        <h4>Danh mục sản phẩm</h4>
-        <ul>
-          <li> Tổ Yến Tinh Chế<ul><li>Nhãn Hiệu Yến Sào Nha Trang</li><li>Nhãn Hiệu Nest Art</li></ul></li>
-          <li> Tổ Yến Chưng Sẵn<ul><li>Nhãn Hiệu Nestizen</li></ul></li>
-        </ul>
-        <h4>Nhãn hiệu</h4>
-        <div><label class="chk"><input type="checkbox"> Yến Sào Nha Trang</label><label class="chk"><input type="checkbox"> Nest Art</label></div>
-      </aside>
-      
-      <div class="pmain">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px">
-          <div><h2 style="font-size:32px;color:#7A1F2B">Tất cả sản phẩm</h2><span style="font-size:14px;color:#6B5A4A">98 sản phẩm</span></div>
-          <label class="f">Sắp xếp<select><option>Mới nhất</option><option>Bán chạy nhất</option></select></label>
-        </div>
-        
-        <div class="pgrid">
-          <div class="card pc">
-            <div class="ph" style="height:200px">[Ảnh sản phẩm]</div>
-            <div class="b"><div class="vend">Nest Art</div><h3 class="pn">Hydra Dew Cream - Kem Dưỡng Ẩm</h3><strong style="color:#7A1F2B;font-size:17px">495,000₫</strong><button class="add" type="button">Thêm vào giỏ</button></div>
+  <header>
+    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" style="font-family:'Playfair Display',serif; font-size:clamp(20px, 1.8vw, 26px); font-weight:700; color:#7A1F2B">Yến Sào Nha Trang</a>
+      <nav class="nav">
+        <a href="index.html">Trang chủ</a>
+        <a href="gioi-thieu.html">Giới thiệu</a>
+        <a href="san-pham.html" class="active">Sản phẩm</a>
+        <a href="tin-tuc.html">Tin tức</a>
+        <a href="cua-hang.html">Hệ thống cửa hàng</a>
+      </nav>
+      <a class="btn" href="san-pham.html">Đặt hàng</a>
+    </div>
+  </header>
+
+  <section class="main-sec">
+    <div class="wrap" style="display:flex; flex-direction:column; height:100%;">
+      <div class="crumb"><a href="index.html">Trang chủ</a> / <strong>Tất cả sản phẩm</strong></div>
+      <div class="pg">
+        <aside class="side">
+          <h4>Danh mục sản phẩm</h4>
+          <ul>
+            <li> Tổ Yến Tinh Chế<ul><li>Yến Sào Nha Trang</li><li>Nest Art</li></ul></li>
+            <li> Tổ Yến Chưng Sẵn<ul><li>Nestizen</li></ul></li>
+          </ul>
+          <h4>Nhãn hiệu</h4>
+          <div><label class="chk"><input type="checkbox"> Yến Sào Nha Trang</label><label class="chk"><input type="checkbox"> Nest Art</label></div>
+        </aside>
+
+        <div class="pmain">
+          <div class="pheader">
+            <div><h2 style="font-size:clamp(20px, 1.8vw, 28px); color:#7A1F2B">Tất cả sản phẩm</h2><span style="font-size:12px; color:#6B5A4A">98 sản phẩm</span></div>
+            <select style="padding:5px 10px; border-radius:6px; border:1px solid #D9C9A5"><option>Mới nhất</option><option>Bán chạy nhất</option></select>
           </div>
-          <div class="card pc">
-            <div class="ph" style="height:200px">[Ảnh sản phẩm]</div>
-            <div class="b"><div class="vend">Nestizen</div><h3 class="pn">Combo 06 Chè Tổ Yến - Các Vị</h3><strong style="color:#7A1F2B;font-size:17px">414,000₫</strong><button class="add" type="button">Thêm vào giỏ</button></div>
+
+          <div class="pgrid">
+            <div class="card"><div class="ph">[Ảnh sản phẩm]</div><div class="b"><div class="vend">Nest Art</div><h3 class="pn">Hydra Dew Cream - Kem Dưỡng Ẩm</h3><strong style="color:#7A1F2B">495,000₫</strong><button class="add">Thêm vào giỏ</button></div></div>
+            <div class="card"><div class="ph">[Ảnh sản phẩm]</div><div class="b"><div class="vend">Nestizen</div><h3 class="pn">Combo 06 Chè Tổ Yến - Các Vị</h3><strong style="color:#7A1F2B">414,000₫</strong><button class="add">Thêm vào giỏ</button></div></div>
+            <div class="card"><div class="ph">[Ảnh sản phẩm]</div><div class="b"><div class="vend">Nest Art</div><h3 class="pn">Mặt Nạ Sinh Học Yến Sào</h3><strong style="color:#7A1F2B">345,000₫</strong><button class="add">Thêm vào giỏ</button></div></div>
+            <div class="card"><div class="ph">[Ảnh sản phẩm]</div><div class="b"><div class="vend">Nestizen</div><h3 class="pn">Yến Chưng Sẵn Nhân Sâm 420ml</h3><strong style="color:#7A1F2B">385,000₫</strong><button class="add">Thêm vào giỏ</button></div></div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer style="background:#2B1A14;color:#F4EBD6;padding:40px 0">
-  <div class="wrap" style="display:flex;justify-content:space-between;font-size:14px">
-    <div><strong>Yến Sào Nha Trang</strong><br>159 Phong Châu, TP. Nha Trang</div>
-    <div>Hotline: 0779 493 886<br><a href="index.html" style="color:#F4EBD6">Trang chủ</a> · <a href="san-pham.html" style="color:#F4EBD6">Sản phẩm</a></div>
-  </div>
-</footer>
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; font-size:clamp(12px, 0.8vw, 14px);">
+      <div><strong>Yến Sào Nha Trang</strong> - 159 Phong Châu, TP. Nha Trang</div>
+      <div>Hotline: 0779 493 886</div>
+    </div>
+  </footer>
+
 </body>
 </html>
