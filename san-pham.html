@@ -15,23 +15,12 @@ html, body {
   background: #FBF6EC;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
+body { display: flex; flex-direction: column; justify-content: space-between; }
 a { color: #2B1A14; text-decoration: none; }
 a:hover { color: #7A1F2B; }
 h1, h2, h3 { font-family: 'Playfair Display', serif; margin: 0; }
 
-.wrap {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 3vw;
-  box-sizing: border-box;
-}
+.wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 3vw; box-sizing: border-box; }
 
 .topbar { background: #7A1F2B; color: #fff; font-size: clamp(12px, 0.8vw, 14px); padding: 0.6vh 0; flex-shrink: 0; }
 header { background: #fff; border-bottom: 1px solid #E9DDC3; padding: 1vh 0; flex-shrink: 0; }
@@ -42,13 +31,13 @@ header { background: #fff; border-bottom: 1px solid #E9DDC3; padding: 1vh 0; fle
 
 .btn { display: inline-block; background: #7A1F2B; color: #fff; padding: 0.8vh 1.6vw; border-radius: 6px; font-weight: 600; font-size: clamp(13px, 0.9vw, 15px); }
 
-/* MAIN WORKSPACE KHÔNG VƯỢT QUÁ MÀN HÌNH PC */
+/* MAIN WORKSPACE */
 .main-sec {
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 1.5vh 0;
-  min-height: 0; /* Quan trọng để flex scroll hoạt động */
+  min-height: 0;
 }
 
 .crumb { font-size: clamp(12px, 0.8vw, 14px); color: #6B5A4A; margin-bottom: 1vh; flex-shrink: 0; }
@@ -66,7 +55,7 @@ header { background: #fff; border-bottom: 1px solid #E9DDC3; padding: 1vh 0; fle
   border: 1px solid #E9DDC3;
   border-radius: 10px;
   padding: 15px;
-  overflow-y: auto; /* Cuộn nội dung bộ lọc nếu cần */
+  overflow-y: auto;
   font-size: clamp(12px, 0.8vw, 14px);
 }
 .side h4 { margin: 0 0 8px; font-size: 13px; text-transform: uppercase; color: #7A1F2B; }
@@ -78,6 +67,8 @@ header { background: #fff; border-bottom: 1px solid #E9DDC3; padding: 1vh 0; fle
   display: flex;
   flex-direction: column;
   min-height: 0;
+  overflow-y: auto; /* Cho phép cuộn danh sách sản phẩm bên trong màn hình 2K */
+  padding-right: 8px;
 }
 
 .pheader {
@@ -85,28 +76,78 @@ header { background: #fff; border-bottom: 1px solid #E9DDC3; padding: 1vh 0; fle
   margin-bottom: 1.5vh; flex-shrink: 0;
 }
 
-/* KHU VỰC CHỨA SẢN PHẨM TỰ SCROLL NỘI BỘ MẦM KHÔNG BỊ TRÀO RA MÀN HÌNH */
+/* LƯỚI SẢN PHẨM: Hiển thị 4 cột cho đúng ý bạn */
 .pgrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 15px;
-  overflow-y: auto;
-  padding-right: 5px;
-  flex: 1;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
 }
 
-.card { background: #fff; border: 1px solid #E9DDC3; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
-.card .b { padding: 12px; display: flex; flex-direction: column; flex: 1; }
-.ph { background: linear-gradient(135deg,#EAD9B5,#D4B77A); display: flex; align-items: center; justify-content: center; height: 140px; color: #5A4210; font-size: 13px; }
-.vend { font-size: 11px; color: #8A6212; font-weight: 600; text-transform: uppercase; }
-.pn { font-size: 14px; font-weight: 500; margin: 4px 0; line-height: 1.3; }
-.add { width: 100%; margin-top: auto; border: 1.5px solid #7A1F2B; background: #fff; color: #7A1F2B; border-radius: 6px; padding: 6px; font-weight: 600; cursor: pointer; }
+.card { 
+  background: #fff; 
+  border: 1px solid #E9DDC3; 
+  border-radius: 10px; 
+  overflow: hidden; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.card .b { 
+  padding: 14px; 
+  display: flex; 
+  flex-direction: column; 
+  flex: 1; 
+}
+
+/* KHUNG ẢNH CHUẨN ĐỂ CHÈN ẢNH TỪ FOLDER IMAGES */
+.product-img-box {
+  width: 100%;
+  height: 180px;
+  background: #EAD9B5;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.vend { font-size: 11px; color: #8A6212; font-weight: 600; text-transform: uppercase; margin-top: 8px; }
+.pn { font-size: 14px; font-weight: 500; margin: 4px 0 8px; line-height: 1.3; }
+.add { width: 100%; margin-top: auto; border: 1.5px solid #7A1F2B; background: #fff; color: #7A1F2B; border-radius: 6px; padding: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+.add:hover { background: #7A1F2B; color: #fff; }
+
+/* NÚT XEM THÊM */
+.btn-xemthem {
+  display: block;
+  width: 200px;
+  margin: 0 auto 30px auto;
+  border: 1.5px solid #7A1F2B;
+  background: #fff;
+  color: #7A1F2B;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-xemthem:hover {
+  background: #7A1F2B;
+  color: #fff;
+}
 
 footer { background: #2B1A14; color: #F4EBD6; padding: 1.5vh 0; flex-shrink: 0; }
 
-@media (max-height: 600px), (max-width: 768px) {
+@media (max-height: 600px), (max-width: 1024px) {
   html, body { overflow: auto; height: auto; }
   .pg { flex-direction: column; }
+  .pgrid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
 </head>
@@ -153,12 +194,55 @@ footer { background: #2B1A14; color: #F4EBD6; padding: 1.5vh 0; flex-shrink: 0; 
             <select style="padding:5px 10px; border-radius:6px; border:1px solid #D9C9A5"><option>Mới nhất</option><option>Bán chạy nhất</option></select>
           </div>
 
+          <!-- LƯỚI SẢN PHẨM 4 CỘT -->
           <div class="pgrid">
-            <div class="card"><div class="ph">[Ảnh sản phẩm]</div><div class="b"><div class="vend">Nest Art</div><h3 class="pn">Hydra Dew Cream - Kem Dưỡng Ẩm</h3><strong style="color:#7A1F2B">495,000₫</strong><button class="add">Thêm vào giỏ</button></div></div>
-            <div class="card"><div class="ph">[Ảnh sản phẩm]</div><div class="b"><div class="vend">Nestizen</div><h3 class="pn">Combo 06 Chè Tổ Yến - Các Vị</h3><strong style="color:#7A1F2B">414,000₫</strong><button class="add">Thêm vào giỏ</button></div></div>
-            <div class="card"><div class="ph">[Ảnh sản phẩm]</div><div class="b"><div class="vend">Nest Art</div><h3 class="pn">Mặt Nạ Sinh Học Yến Sào</h3><strong style="color:#7A1F2B">345,000₫</strong><button class="add">Thêm vào giỏ</button></div></div>
-            <div class="card"><div class="ph">[Ảnh sản phẩm]</div><div class="b"><div class="vend">Nestizen</div><h3 class="pn">Yến Chưng Sẵn Nhân Sâm 420ml</h3><strong style="color:#7A1F2B">385,000₫</strong><button class="add">Thêm vào giỏ</button></div></div>
+            <!-- Sản phẩm 1 -->
+            <div class="card">
+              <div class="product-img-box"><img src="images/sp1.jpg" alt="Sản phẩm 1"></div>
+              <div class="b">
+                <div class="vend">Nest Art</div>
+                <h3 class="pn">Hydra Dew Cream - Kem Dưỡng Ẩm</h3>
+                <strong style="color:#7A1F2B">495,000₫</strong>
+                <button class="add">Thêm vào giỏ</button>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="card">
+              <div class="product-img-box"><img src="images/sp2.jpg" alt="Sản phẩm 2"></div>
+              <div class="b">
+                <div class="vend">Nestizen</div>
+                <h3 class="pn">Combo 06 Chè Tổ Yến - Các Vị</h3>
+                <strong style="color:#7A1F2B">414,000₫</strong>
+                <button class="add">Thêm vào giỏ</button>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="card">
+              <div class="product-img-box"><img src="images/sp3.jpg" alt="Sản phẩm 3"></div>
+              <div class="b">
+                <div class="vend">Nest Art</div>
+                <h3 class="pn">Mặt Nạ Sinh Học Yến Sào</h3>
+                <strong style="color:#7A1F2B">345,000₫</strong>
+                <button class="add">Thêm vào giỏ</button>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 4 -->
+            <div class="card">
+              <div class="product-img-box"><img src="images/sp4.jpg" alt="Sản phẩm 4"></div>
+              <div class="b">
+                <div class="vend">Nestizen</div>
+                <h3 class="pn">Yến Chưng Sẵn Nhân Sâm 420ml</h3>
+                <strong style="color:#7A1F2B">385,000₫</strong>
+                <button class="add">Thêm vào giỏ</button>
+              </div>
+            </div>
           </div>
+
+          <!-- Nút Xem Thêm -->
+          <button class="btn-xemthem" onclick="alert('Đang tải thêm sản phẩm...')">Xem thêm sản phẩm</button>
         </div>
       </div>
     </div>
