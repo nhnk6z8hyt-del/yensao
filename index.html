@@ -5,98 +5,117 @@
 <title>Yến Sào Nha Trang - Trang Chủ</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap">
 <style>
-/* 1. KHAI BÁO BIẾN & TỐI ƯU CƠ BẢN */
-:root {
-  --primary: #7A1F2B;
-  --primary-hover: #5E1620;
-  --gold: #8A6212;
-  --bg-light: #FBF6EC;
-  --border-color: #E9DDC3;
-}
-
-* {
+/* 1. KHÓA KHUNG VỪA ĐÚNG 100% MÀN HÌNH MÁY TÍNH */
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  overflow: hidden; /* Khóa cuộn chuột tuyệt đối trên PC */
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #2B1A14;
+  background: #FBF6EC;
 }
 
 body {
-  font-family: 'Be Vietnam Pro', sans-serif;
-  color: #2B1A14;
-  background: var(--bg-light);
-  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-a {
-  color: #2B1A14;
-  text-decoration: none;
-}
+a { color: #2B1A14; text-decoration: none; }
+a:hover { color: #7A1F2B; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; margin: 0; }
 
-a:hover {
-  color: var(--primary);
-}
-
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  margin: 0;
-}
-
-/* 2. WRAPPER CO GIÃN LINH HOẠT TỪ FULL HD ĐẾN 2K/4K */
 .wrap {
   width: 100%;
-  max-width: 1360px; /* Tăng chiều rộng để vừa vặn hơn trên màn lớn */
+  max-width: 1440px; /* Tự mở rộng theo màn 2K/4K */
   margin: 0 auto;
-  padding: 0 4vw; /* Padding theo % chiều rộng màn hình */
+  padding: 0 3vw;
+  box-sizing: border-box;
 }
 
-/* 3. ĐIỀU CHỈNH FONT CHỮ DÙNG CLAMP() TỰ CO GIÃN */
-h1 {
-  font-size: clamp(32px, 3.5vw, 56px) !important;
-  line-height: 1.15;
-  color: var(--primary);
+/* 2. TOPBAR & HEADER */
+.topbar {
+  background: #7A1F2B;
+  color: #fff;
+  font-size: clamp(12px, 0.8vw, 14px);
+  padding: 0.6vh 0;
+  flex-shrink: 0;
 }
 
-h2 {
-  font-size: clamp(24px, 2.5vw, 40px) !important;
+header {
+  background: #fff;
+  border-bottom: 1px solid #E9DDC3;
+  padding: 1vh 0;
+  flex-shrink: 0;
 }
 
-.eyebrow {
-  font-size: clamp(12px, 1vw, 14px);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--gold);
+.nav { display: flex; gap: 2vw; align-items: center; }
+.nav a { font-weight: 500; font-size: clamp(13px, 0.9vw, 16px); }
+.nav a.active { color: #7A1F2B; font-weight: 600; }
+
+.btn {
+  display: inline-block;
+  background: #7A1F2B;
+  color: #fff;
+  padding: 0.8vh 1.6vw;
+  border-radius: 6px;
   font-weight: 600;
-  margin-bottom: 8px;
+  font-size: clamp(13px, 0.9vw, 15px);
+}
+.btn2 {
+  display: inline-block;
+  border: 1.5px solid #7A1F2B;
+  color: #7A1F2B;
+  padding: 0.7vh 1.6vw;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: clamp(13px, 0.9vw, 15px);
 }
 
-/* 4. ĐIỀU CHỈNH HERO SECTION & BANNER SLIDER */
+/* 3. HERO SECTION (TỰ ĐỘNG DÃN DÒNG CHIỀU CAO ĐỂ LẤY ĐẦY KHOẢNG TRỐNG) */
 .hero-sec {
   background: linear-gradient(180deg, #F4E8CC, #FBF6EC);
-  padding: clamp(40px, 5vh, 80px) 0;
+  flex: 1; /* Tự động phình to ra để lấp đầy toàn bộ khoảng trống trung tâm */
+  display: flex;
+  align-items: center;
 }
 
 .hero-grid {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: clamp(24px, 4vw, 60px);
+  gap: 4vw;
+  width: 100%;
 }
 
-.hero-text {
-  flex: 1 1 450px;
+.hero-text { flex: 1 1 420px; }
+.eyebrow {
+  font-size: clamp(11px, 0.8vw, 13px);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #8A6212;
+  font-weight: 600;
+  margin-bottom: 0.8vh;
+}
+
+h1 {
+  font-size: clamp(32px, 3.2vw, 54px);
+  line-height: 1.15;
+  color: #7A1F2B;
 }
 
 .hero-text p {
-  font-size: clamp(15px, 1.2vw, 19px);
-  margin: 18px 0 28px;
-  max-width: 580px;
+  font-size: clamp(14px, 1.1vw, 18px);
+  line-height: 1.6;
+  margin: 1.5vh 0 2.5vh;
+  max-width: 520px;
 }
 
-/* Khung Banner tự điều chỉnh tỉ lệ theo màn hình */
+/* 4. BANNER SLIDESHOW (TỰ TÍNH THEO VIEWPORT HEIGHT) */
 .slider-container {
   position: relative;
   width: 100%;
-  height: clamp(320px, 28vh, 480px); /* Tự tăng chiều cao trên màn 2K */
+  height: clamp(280px, 42vh, 500px); /* Tự động co dãn theo chiều cao màn hình */
   border-radius: 14px;
   overflow: hidden;
   background: #D4B77A;
@@ -105,177 +124,149 @@ h2 {
 
 .slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   color: #5A4210;
-  font-size: clamp(16px, 1.5vw, 22px);
+  font-size: clamp(15px, 1.2vw, 20px);
   font-weight: 600;
-  text-align: center;
-  background-size: cover;
-  background-position: center;
 }
-
 .slide.active { opacity: 1; }
 
 .slide-dots {
-  position: absolute;
-  bottom: 16px;
-  left: 50%;
+  position: absolute; bottom: 12px; left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 10;
+  display: flex; gap: 8px; z-index: 10;
 }
-
 .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: background 0.3s;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5); cursor: pointer;
 }
-
 .dot.active { background: #fff; }
 
-/* 5. NÚT BẤM (BUTTONS) */
-.btn {
-  display: inline-block;
-  background: var(--primary);
-  color: #fff;
-  padding: clamp(10px, 1vw, 14px) clamp(20px, 1.8vw, 32px);
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: clamp(14px, 1vw, 16px);
-  transition: background 0.3s;
+/* 5. THÔNG TIN CAM KẾT */
+.features-sec {
+  background: #fff;
+  border-top: 1px solid #E9DDC3;
+  border-bottom: 1px solid #E9DDC3;
+  padding: 1.5vh 0;
+  flex-shrink: 0;
 }
 
-.btn:hover {
-  background: var(--primary-hover);
-  color: #fff;
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  text-align: center;
 }
 
-.btn2 {
-  display: inline-block;
-  border: 1.5px solid var(--primary);
-  color: var(--primary);
-  padding: clamp(9px, 0.9vw, 13px) clamp(20px, 1.8vw, 32px);
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: clamp(14px, 1vw, 16px);
+.features-grid strong { font-size: clamp(13px, 0.9vw, 16px); }
+.features-grid span { font-size: clamp(12px, 0.8vw, 14px); }
+
+/* 6. FOOTER DÍNH SÁT ĐÁY MÀN HÌNH */
+footer {
+  background: #2B1A14;
+  color: #F4EBD6;
+  padding: 2vh 0;
+  flex-shrink: 0;
 }
 
-/* 6. NAVIGATION & HEADER */
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px clamp(16px, 2vw, 36px);
-  align-items: center;
-}
-
-.nav a {
-  font-weight: 500;
-  font-size: clamp(14px, 1vw, 16px);
-  padding: 8px 0;
-}
-
-.nav a.active {
-  color: var(--primary);
-  border-bottom: 2px solid var(--primary);
-}
-
-/* 7. MEDIA QUERIES RIÊNG CHO MÀN HÌNH LỚN (Màn 2K / 4K) */
-@media (min-width: 1920px) {
-  .wrap {
-    max-width: 1600px; /* Mở rộng tối đa cho màn 2K/4K */
-  }
-  
-  .slider-container {
-    height: 520px; /* Tăng kích thước banner khi hiển thị ở độ phân giải siêu rộng */
-  }
+/* Tự động bật cuộn chuột nếu mở bằng điện thoại/màn hình đứng */
+@media (max-height: 600px), (max-width: 768px) {
+  html, body { overflow: auto; height: auto; }
+  .hero-sec { padding: 40px 0; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
 </head>
 <body>
 
-<div style="background:#7A1F2B;color:#fff;font-size:14px;padding:10px 0">
-  <div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px">
-    <span>Hotline: 0779 493 886 &nbsp;|&nbsp; Giao hàng toàn quốc</span>
-    <span>Yến sào Khánh Hòa – Nha Trang</span>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap" style="display:flex; justify-content:space-between;">
+      <span>Hotline: 0779 493 886 &nbsp;|&nbsp; Giao hàng toàn quốc</span>
+      <span>Yến sào Khánh Hòa – Nha Trang</span>
+    </div>
   </div>
-</div>
 
-<header style="background:#fff;border-bottom:1px solid #E9DDC3">
-  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px">
-    <a href="index.html" style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#7A1F2B">Yến Sào Nha Trang</a>
-    <nav class="nav" aria-label="Menu chính">
-      <a href="index.html" class="active">Trang chủ</a>
-      <a href="gioi-thieu.html">Giới thiệu</a>
-      <a href="san-pham.html">Sản phẩm</a>
-      <a href="tin-tuc.html">Tin tức</a>
-      <a href="cua-hang.html">Hệ thống cửa hàng</a>
-    </nav>
-    <a class="btn" href="san-pham.html">Đặt hàng</a>
-  </div>
-</header>
+  <!-- Header -->
+  <header>
+    <div class="wrap" style="display:flex; align-items:center; justify-content:space-between;">
+      <a href="index.html" style="font-family:'Playfair Display',serif; font-size:clamp(20px, 1.8vw, 26px); font-weight:700; color:#7A1F2B">Yến Sào Nha Trang</a>
+      <nav class="nav">
+        <a href="index.html" class="active">Trang chủ</a>
+        <a href="gioi-thieu.html">Giới thiệu</a>
+        <a href="san-pham.html">Sản phẩm</a>
+        <a href="tin-tuc.html">Tin tức</a>
+        <a href="cua-hang.html">Hệ thống cửa hàng</a>
+      </nav>
+      <a class="btn" href="san-pham.html">Đặt hàng</a>
+    </div>
+  </header>
 
-<section class="hero-sec">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <p class="eyebrow">Đặc sản Khánh Hòa</p>
-        <h1>Tinh hoa yến sào Nha Trang</h1>
-        <p>Tổ yến được chọn lọc, làm sạch và chế biến cẩn thận – món quà bồi bổ sức khỏe cho gia đình và người thân.</p>
-        <a class="btn" href="san-pham.html">Xem sản phẩm</a> &nbsp; 
-        <a class="btn2" href="gioi-thieu.html">Tìm hiểu thêm</a>
-      </div>
-      
-      <!-- Khung Banner Slideshow 5 ảnh -->
-      <div style="flex: 1 1 480px;">
-        <div class="slider-container">
-          <div class="slide active" style="background-color:#EAD9B5;">[Ảnh Banner 1: Tổ yến cao cấp]</div>
-          <div class="slide" style="background-color:#E0CCA2;">[Ảnh Banner 2: Yến chưng sẵn tươi]</div>
-          <div class="slide" style="background-color:#D6BE90;color:#fff;">[Ảnh Banner 3: Quy trình khai thác]</div>
-          <div class="slide" style="background-color:#CCB07D;">[Ảnh Banner 4: Hộp quà biếu sang trọng]</div>
-          <div class="slide" style="background-color:#C2A26A;color:#fff;">[Ảnh Banner 5: Trang trại & Nhà yến]</div>
-          
-          <div class="slide-dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
+  <!-- Hero Section -->
+  <section class="hero-sec">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Đặc sản Khánh Hòa</p>
+          <h1>Tinh hoa yến sào Nha Trang</h1>
+          <p>Tổ yến được chọn lọc, làm sạch và chế biến cẩn thận – món quà bồi bổ sức khỏe cho gia đình và người thân.</p>
+          <a class="btn" href="san-pham.html">Xem sản phẩm</a> &nbsp; 
+          <a class="btn2" href="gioi-thieu.html">Tìm hiểu thêm</a>
+        </div>
+        
+        <div style="flex: 1 1 450px;">
+          <div class="slider-container">
+            <div class="slide active" style="background-color:#EAD9B5;">[Ảnh Banner 1: Tổ yến cao cấp]</div>
+            <div class="slide" style="background-color:#E0CCA2;">[Ảnh Banner 2: Yến chưng sẵn tươi]</div>
+            <div class="slide" style="background-color:#D6BE90; color:#fff;">[Ảnh Banner 3: Quy trình khai thác]</div>
+            <div class="slide" style="background-color:#CCB07D;">[Ảnh Banner 4: Hộp quà biếu sang trọng]</div>
+            <div class="slide" style="background-color:#C2A26A; color:#fff;">[Ảnh Banner 5: Trang trại & Nhà yến]</div>
+            
+            <div class="slide-dots">
+              <span class="dot active" onclick="currentSlide(0)"></span>
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section style="background:#fff;border-top:1px solid #E9DDC3;border-bottom:1px solid #E9DDC3">
-  <div class="wrap" style="padding-top:28px;padding-bottom:28px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;text-align:center">
-      <div><strong>Nguồn gốc rõ ràng</strong><br><span style="font-size:14px">Yến sào Khánh Hòa</span></div>
-      <div><strong>Chế biến sạch</strong><br><span style="font-size:14px">Làm sạch lông, tạp chất</span></div>
-      <div><strong>Chưng tươi</strong><br><span style="font-size:14px">Đóng hũ theo ngày</span></div>
-      <div><strong>Giao toàn quốc</strong><br><span style="font-size:14px">Đóng gói cẩn thận</span></div>
+  <!-- Features -->
+  <section class="features-sec">
+    <div class="wrap">
+      <div class="features-grid">
+        <div><strong>Nguồn gốc rõ ràng</strong><br><span>Yến sào Khánh Hòa</span></div>
+        <div><strong>Chế biến sạch</strong><br><span>Làm sạch lông, tạp chất</span></div>
+        <div><strong>Chưng tươi</strong><br><span>Đóng hũ theo ngày</span></div>
+        <div><strong>Giao toàn quốc</strong><br><span>Đóng gói cẩn thận</span></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer style="background:#2B1A14;color:#F4EBD6;padding:40px 0">
-  <div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;font-size:14px;line-height:1.7">
-    <div><strong style="font-family:'Playfair Display',serif;font-size:20px">Yến Sào Nha Trang</strong><br>159 Phong Châu, TP. Nha Trang<br>Email: contact@yensaonhatrang.com</div>
-    <div>Hotline: 0779 493 886<br><a href="index.html" style="color:#F4EBD6">Trang chủ</a> · <a href="gioi-thieu.html" style="color:#F4EBD6">Giới thiệu</a> · <a href="san-pham.html" style="color:#F4EBD6">Sản phẩm</a> · <a href="tin-tuc.html" style="color:#F4EBD6">Tin tức</a> · <a href="cua-hang.html" style="color:#F4EBD6">Cửa hàng</a></div>
-  </div>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; font-size:clamp(12px, 0.8vw, 14px);">
+      <div>
+        <strong style="font-family:'Playfair Display',serif; font-size:clamp(15px, 1.1vw, 18px)">Yến Sào Nha Trang</strong><br>
+        159 Phong Châu, TP. Nha Trang &nbsp;|&nbsp; Email: contact@yensaonhatrang.com
+      </div>
+      <div>
+        Hotline: 0779 493 886<br>
+        <a href="index.html" style="color:#F4EBD6">Trang chủ</a> · 
+        <a href="gioi-thieu.html" style="color:#F4EBD6">Giới thiệu</a> · 
+        <a href="san-pham.html" style="color:#F4EBD6">Sản phẩm</a> · 
+        <a href="tin-tuc.html" style="color:#F4EBD6">Tin tức</a> · 
+        <a href="cua-hang.html" style="color:#F4EBD6">Cửa hàng</a>
+      </div>
+    </div>
+  </footer>
 
 <script>
 let slideIndex = 0;
@@ -292,14 +283,8 @@ function showSlide(n) {
   dots[slideIndex].classList.add('active');
 }
 
-function currentSlide(n) {
-  showSlide(n);
-}
-
-// Tự động chuyển ảnh sau mỗi 4 giây
-setInterval(() => {
-  showSlide(slideIndex + 1);
-}, 4000);
+function currentSlide(n) { showSlide(n); }
+setInterval(() => { showSlide(slideIndex + 1); }, 4000);
 </script>
 </body>
 </html>
