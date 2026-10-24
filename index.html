@@ -5,26 +5,202 @@
 <title>Yến Sào Nha Trang - Trang Chủ</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap">
 <style>
-body{margin:0;font-family:'Be Vietnam Pro',sans-serif;color:#2B1A14;background:#FBF6EC}
-a{color:#2B1A14;text-decoration:none}a:hover{color:#7A1F2B}
-h1,h2,h3{font-family:'Playfair Display',serif;margin:0}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-.sec{padding:72px 0}
-.eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8A6212;font-weight:600;margin:0 0 8px}
-.btn{display:inline-block;background:#7A1F2B;color:#fff;padding:13px 26px;border-radius:6px;font-weight:600}
-.btn:hover{color:#fff;background:#5E1620}
-.btn2{display:inline-block;border:1.5px solid #7A1F2B;color:#7A1F2B;padding:12px 26px;border-radius:6px;font-weight:600}
-.nav{display:flex;flex-wrap:wrap;gap:6px 28px;align-items:center}
-.nav a{font-weight:500;padding:12px 0}
-.nav a.active{color:#7A1F2B;border-bottom:2px solid #7A1F2B}
+/* 1. KHAI BÁO BIẾN & TỐI ƯU CƠ BẢN */
+:root {
+  --primary: #7A1F2B;
+  --primary-hover: #5E1620;
+  --gold: #8A6212;
+  --bg-light: #FBF6EC;
+  --border-color: #E9DDC3;
+}
 
-/* CSS cho Banner Slideshow 5 ảnh */
-.slider-container{position:relative;width:100%;height:380px;border-radius:14px;overflow:hidden;background:#D4B77A}
-.slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 1s ease-in-out;display:flex;align-items:center;justify-content:center;color:#5A4210;font-size:18px;font-weight:600;text-align:center;background-size:cover;background-position:center}
-.slide.active{opacity:1}
-.slide-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
-.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer;transition:background 0.3s}
-.dot.active{background:#fff}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: #2B1A14;
+  background: var(--bg-light);
+  line-height: 1.6;
+}
+
+a {
+  color: #2B1A14;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+}
+
+/* 2. WRAPPER CO GIÃN LINH HOẠT TỪ FULL HD ĐẾN 2K/4K */
+.wrap {
+  width: 100%;
+  max-width: 1360px; /* Tăng chiều rộng để vừa vặn hơn trên màn lớn */
+  margin: 0 auto;
+  padding: 0 4vw; /* Padding theo % chiều rộng màn hình */
+}
+
+/* 3. ĐIỀU CHỈNH FONT CHỮ DÙNG CLAMP() TỰ CO GIÃN */
+h1 {
+  font-size: clamp(32px, 3.5vw, 56px) !important;
+  line-height: 1.15;
+  color: var(--primary);
+}
+
+h2 {
+  font-size: clamp(24px, 2.5vw, 40px) !important;
+}
+
+.eyebrow {
+  font-size: clamp(12px, 1vw, 14px);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* 4. ĐIỀU CHỈNH HERO SECTION & BANNER SLIDER */
+.hero-sec {
+  background: linear-gradient(180deg, #F4E8CC, #FBF6EC);
+  padding: clamp(40px, 5vh, 80px) 0;
+}
+
+.hero-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(24px, 4vw, 60px);
+}
+
+.hero-text {
+  flex: 1 1 450px;
+}
+
+.hero-text p {
+  font-size: clamp(15px, 1.2vw, 19px);
+  margin: 18px 0 28px;
+  max-width: 580px;
+}
+
+/* Khung Banner tự điều chỉnh tỉ lệ theo màn hình */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 28vh, 480px); /* Tự tăng chiều cao trên màn 2K */
+  border-radius: 14px;
+  overflow: hidden;
+  background: #D4B77A;
+  box-shadow: 0 8px 24px rgba(43, 26, 20, 0.08);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5A4210;
+  font-size: clamp(16px, 1.5vw, 22px);
+  font-weight: 600;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide.active { opacity: 1; }
+
+.slide-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active { background: #fff; }
+
+/* 5. NÚT BẤM (BUTTONS) */
+.btn {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: clamp(10px, 1vw, 14px) clamp(20px, 1.8vw, 32px);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: clamp(14px, 1vw, 16px);
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: var(--primary-hover);
+  color: #fff;
+}
+
+.btn2 {
+  display: inline-block;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  padding: clamp(9px, 0.9vw, 13px) clamp(20px, 1.8vw, 32px);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: clamp(14px, 1vw, 16px);
+}
+
+/* 6. NAVIGATION & HEADER */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px clamp(16px, 2vw, 36px);
+  align-items: center;
+}
+
+.nav a {
+  font-weight: 500;
+  font-size: clamp(14px, 1vw, 16px);
+  padding: 8px 0;
+}
+
+.nav a.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+/* 7. MEDIA QUERIES RIÊNG CHO MÀN HÌNH LỚN (Màn 2K / 4K) */
+@media (min-width: 1920px) {
+  .wrap {
+    max-width: 1600px; /* Mở rộng tối đa cho màn 2K/4K */
+  }
+  
+  .slider-container {
+    height: 520px; /* Tăng kích thước banner khi hiển thị ở độ phân giải siêu rộng */
+  }
+}
 </style>
 </head>
 <body>
@@ -50,30 +226,33 @@ h1,h2,h3{font-family:'Playfair Display',serif;margin:0}
   </div>
 </header>
 
-<section style="background:linear-gradient(180deg,#F4E8CC,#FBF6EC)">
-  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;gap:40px;padding-top:64px;padding-bottom:64px">
-    <div style="flex:1 1 440px">
-      <p class="eyebrow">Đặc sản Khánh Hòa</p>
-      <h1 style="font-size:52px;line-height:1.15;color:#7A1F2B">Tinh hoa yến sào Nha Trang</h1>
-      <p style="font-size:18px;line-height:1.7;margin:18px 0 28px;max-width:500px">Tổ yến được chọn lọc, làm sạch và chế biến cẩn thận – món quà bồi bổ sức khỏe cho gia đình và người thân.</p>
-      <a class="btn" href="san-pham.html">Xem sản phẩm</a> &nbsp; <a class="btn2" href="gioi-thieu.html">Tìm hiểu thêm</a>
-    </div>
-    
-    <!-- Khung Banner Slideshow chứa 5 ảnh -->
-    <div style="flex:1 1 400px;position:relative">
-      <div class="slider-container">
-        <div class="slide active" style="background-color:#EAD9B5;">[Ảnh Banner 1: Tổ yến cao cấp]</div>
-        <div class="slide" style="background-color:#E0CCA2;">[Ảnh Banner 2: Yến chưng sẵn tươi]</div>
-        <div class="slide" style="background-color:#D6BE90;color:#fff;">[Ảnh Banner 3: Quy trình khai thác]</div>
-        <div class="slide" style="background-color:#CCB07D;">[Ảnh Banner 4: Hộp quà biếu sang trọng]</div>
-        <div class="slide" style="background-color:#C2A26A;color:#fff;">[Ảnh Banner 5: Trang trại & Nhà yến]</div>
-        
-        <div class="slide-dots">
-          <span class="dot active" onclick="currentSlide(0)"></span>
-          <span class="dot" onclick="currentSlide(1)"></span>
-          <span class="dot" onclick="currentSlide(2)"></span>
-          <span class="dot" onclick="currentSlide(3)"></span>
-          <span class="dot" onclick="currentSlide(4)"></span>
+<section class="hero-sec">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Đặc sản Khánh Hòa</p>
+        <h1>Tinh hoa yến sào Nha Trang</h1>
+        <p>Tổ yến được chọn lọc, làm sạch và chế biến cẩn thận – món quà bồi bổ sức khỏe cho gia đình và người thân.</p>
+        <a class="btn" href="san-pham.html">Xem sản phẩm</a> &nbsp; 
+        <a class="btn2" href="gioi-thieu.html">Tìm hiểu thêm</a>
+      </div>
+      
+      <!-- Khung Banner Slideshow 5 ảnh -->
+      <div style="flex: 1 1 480px;">
+        <div class="slider-container">
+          <div class="slide active" style="background-color:#EAD9B5;">[Ảnh Banner 1: Tổ yến cao cấp]</div>
+          <div class="slide" style="background-color:#E0CCA2;">[Ảnh Banner 2: Yến chưng sẵn tươi]</div>
+          <div class="slide" style="background-color:#D6BE90;color:#fff;">[Ảnh Banner 3: Quy trình khai thác]</div>
+          <div class="slide" style="background-color:#CCB07D;">[Ảnh Banner 4: Hộp quà biếu sang trọng]</div>
+          <div class="slide" style="background-color:#C2A26A;color:#fff;">[Ảnh Banner 5: Trang trại & Nhà yến]</div>
+          
+          <div class="slide-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+          </div>
         </div>
       </div>
     </div>
